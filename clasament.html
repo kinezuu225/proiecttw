@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sala recordurilor arcade Snake 1997 - clasamentul jucatorilor, statistici si formula de calcul a scorului.">
+    <title>Snake 1997 | Highscore-uri</title>
+    <link rel="icon" href="poza_index.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-grup">
+                <img src="poza_index.png" alt="Sigla Snake 1997" class="poza-bara" width="46" height="46">
+                <span>
+                    <span class="logo-text">SNAKE 1997</span>
+                    <span class="logo-sub">RETRO LCD EDITION</span>
+                </span>
+            </a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776; MENIU</label>
+            <nav aria-label="Meniu principal">
+                <ul class="nav-list">
+                    <li><a href="index.html">Acasă</a></li>
+                    <li class="has-dropdown">
+                        <a href="istorie.html">Ghid &amp; Moduri</a>
+                        <ul class="dropdown">
+                            <li><a href="istorie.html#evolutie">Istoria jocului (1976-1997)</a></li>
+                            <li><a href="istorie.html#reguli">Strategia Zig-Zag</a></li>
+                            <li><a href="index.html#moduri">Moduri clasice</a></li>
+                            <li><a href="index.html#ghid-vizual">Punctaj &amp; Secret</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="clasament.html" class="activ">Highscore-uri</a></li>
+                    <li><a href="echipa.html">Creatori</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Hall of Fame — Highscore-uri</h1>
+        <span class="insert-coin">● INSERT COIN TO CHALLENGE RECORD ●</span>
+        <p>
+            În cultura sălilor arcade din anii '70 și '80, obținerea unui loc în Top 3 însemna dreptul de a-ți
+            grava inițialele din trei litere în memoria permanentă a aparatului. Mai jos este prezentată tabela
+            recordurilor înregistrate pe modurile clasice ale jocului Snake.
+        </p>
+
+        <section class="sectiune-spatiu">
+            <h2>Statistici aparat arcade</h2>
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <h3>Record mondial 3310</h3>
+                    <p class="stat-valoare">4608 PCT</p>
+                    <p>Ecran complet fără coliziuni</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Record local sală</h3>
+                    <p class="stat-valoare">1980 PCT</p>
+                    <p>Inițiale jucător: NOK</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Viteză maximă</h3>
+                    <p class="stat-valoare">LVL 09</p>
+                    <p>Timp reacție: 95 ms</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="table-wrapper">
+            <h2>Clasament Top 8 Jucători</h2>
+            <table class="arcade-tabel">
+                <caption>MEMORIE EEPROM — TABELA DE SCORURI 1997</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Loc</th>
+                        <th scope="col">Inițiale / Jucător</th>
+                        <th scope="col">Mod de joc</th>
+                        <th scope="col">Mere colectate</th>
+                        <th scope="col">Durată rundă</th>
+                        <th scope="col">Scor final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>NOK — Taneli_97</td>
+                        <td>Clasic Box (Lvl 9)</td>
+                        <td>142</td>
+                        <td>14m 20s</td>
+                        <td>1980</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>SNK — ViperMaster</td>
+                        <td>Campaign Labirint</td>
+                        <td>118</td>
+                        <td>12m 05s</td>
+                        <td>1640</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>ARC — PixelKing</td>
+                        <td>No Walls (Snake II)</td>
+                        <td>104</td>
+                        <td>10m 48s</td>
+                        <td>1410</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>GRM — Blockade76</td>
+                        <td>Clasic Box (Lvl 8)</td>
+                        <td>92</td>
+                        <td>09m 32s</td>
+                        <td>1190</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>DEV — RetroKid</td>
+                        <td>Clasic Box (Lvl 7)</td>
+                        <td>84</td>
+                        <td>08m 50s</td>
+                        <td>1050</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>CRT — ByteRunner</td>
+                        <td>Campaign Labirint</td>
+                        <td>74</td>
+                        <td>07m 41s</td>
+                        <td>890</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>DOS — Nibbles91</td>
+                        <td>No Walls (Snake II)</td>
+                        <td>61</td>
+                        <td>06m 15s</td>
+                        <td>710</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>LCD — Novice3310</td>
+                        <td>Clasic Box (Lvl 5)</td>
+                        <td>52</td>
+                        <td>05m 30s</td>
+                        <td>520</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6">Notă: Primele 3 poziții primesc automat medalii de podium prin CSS (:nth-of-type și ::before).</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section class="two-col-info">
+            <h2>Cum se calculează scorul oficial</h2>
+            <article class="info-box">
+                <h3>Formula versiunii originale Nokia</h3>
+                <p>
+                    În ediția din 1997, fiecare măr mâncat valora exact numărul nivelului de viteză selectat
+                    (de exemplu, la Nivelul 9 primeai 9 puncte pe măr). În <em>Snake II</em> (2000), s-au adăugat
+                    insectele bonus temporare (păianjeni, gândaci, broaște) care ofereau între 20 și 45 de puncte
+                    în funcție de cât de repede le prindeai înainte să dispară de pe ecran.
+                </p>
+            </article>
+
+            <article class="info-box">
+                <h3>Limita matematică a ecranului</h3>
+                <p>
+                    Deoarece suprafața de joc este o matrice finită de celule, jocul se încheie glorios în
+                    momentul în care șarpele ocupă 100% din grilă și nu mai există niciun pixel liber unde să
+                    poată fi generat următorul măr. Atingerea acestui prag necesită peste 15 minute de concentrare
+                    neîntreruptă fără nicio eroare de direcție.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 SNAKE 1997 RETRO EDITION — Proiect Tehnici Web (HTML5 &amp; CSS3)</p>
+            <div class="footer-links">
+                <a href="index.html">Acasă</a>
+                <a href="istorie.html">Istorie</a>
+                <a href="clasament.html">Highscore-uri</a>
+                <a href="echipa.html">Creatori</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

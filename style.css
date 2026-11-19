@@ -1,0 +1,2638 @@
+/* reset si stiluri generale */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #101214;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.26) 0px,
+        rgba(0, 0, 0, 0.26) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    color: #e4e8ec;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+}
+
+h1, h2, h3 {
+    color: #9bbc0f;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+h1 {
+    font-size: 1.95rem;
+    text-shadow: 3px 3px 0px #000000;
+}
+
+h2 {
+    font-size: 1.38rem;
+    border-bottom: 3px double #306230;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.15rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+}
+
+a {
+    color: #9bbc0f;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* header si poza_index */
+header {
+    background-color: #181c20;
+    border-bottom: 4px solid #9bbc0f;
+    box-shadow: 0 4px 0px #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-grup {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.poza-bara {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border: 2px solid #9bbc0f;
+    background-color: #0f380f;
+    box-shadow: 3px 3px 0px #000000;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.logo-grup:hover .poza-bara {
+    transform: rotate(-5deg) scale(1.06);
+    border-color: #ffcc00;
+}
+
+.logo-text {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: #9bbc0f;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.logo-sub {
+    display: block;
+    font-size: 0.72rem;
+    color: #ffcc00;
+    letter-spacing: 0.12em;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0f380f;
+    background-color: #9bbc0f;
+    border: 2px solid #000000;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* meniu navigare si dropdown */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.nav-list > li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.55rem 0.9rem;
+    color: #e4e8ec;
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: color 0.2s ease, background-color 0.25s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a.activ {
+    color: #0f380f;
+    background-color: #9bbc0f;
+    border-color: #000000;
+}
+
+.has-dropdown > a::after {
+    content: " ▾";
+    color: #ffcc00;
+}
+
+.has-dropdown > a:hover::after,
+.has-dropdown > a:focus::after,
+.has-dropdown > a.activ::after {
+    color: #0f380f;
+}
+
+.dropdown {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 245px;
+    background-color: #181c20;
+    border: 3px solid #9bbc0f;
+    box-shadow: 5px 5px 0px #000000;
+    display: none;
+    z-index: 200;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown {
+    display: block;
+}
+
+.dropdown li a {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #2c333a;
+    transition-property: background-color, color, padding-left;
+    transition-duration: 0.2s, 0.2s, 0.3s;
+    transition-delay: 0s, 0.04s, 0.08s;
+}
+
+.dropdown li a:hover {
+    padding-left: 1.35rem;
+}
+
+/* sectiune principala si consola nokia */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: center;
+    background-color: #181c20;
+    border: 4px double #9bbc0f;
+    box-shadow: 6px 6px 0px #000000;
+    padding: 1.75rem;
+    margin-bottom: 2.25rem;
+}
+
+.retro-badge {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #101214;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid #000000;
+}
+
+.instructiuni-joc {
+    background-color: #101214;
+    border: 2px solid #306230;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0 1.25rem 0;
+}
+
+.instructiuni-joc h2 {
+    font-size: 1.02rem;
+    margin-bottom: 0.55rem;
+}
+
+.instructiuni-joc ul {
+    padding-left: 1.25rem;
+    font-size: 0.92rem;
+}
+
+.instructiuni-joc li {
+    margin-bottom: 0.4rem;
+}
+
+.btn-retro {
+    display: inline-block;
+    padding: 0.75rem 1.35rem;
+    background-color: #9bbc0f;
+    color: #0f380f;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    text-transform: uppercase;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition-property: background-color, color, transform, box-shadow;
+    transition-duration: 0.2s, 0.25s, 0.2s, 0.35s;
+    transition-delay: 0s, 0.04s, 0.06s, 0.1s;
+}
+
+.btn-retro:hover {
+    background-color: #ffcc00;
+    color: #101214;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000000;
+}
+
+/* carcasa telefon nokia 3310 */
+#nokia-console {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#nokia-console input[type="radio"] {
+    display: none;
+}
+
+.nokia-body {
+    width: 100%;
+    max-width: 320px;
+    background-color: #273444;
+    border: 4px solid #0a0d10;
+    border-radius: 26px 26px 42px 42px;
+    padding: 1.1rem 1rem 1.35rem 1rem;
+    box-shadow: 8px 8px 0px #000000;
+}
+
+.nokia-speaker {
+    width: 54px;
+    height: 6px;
+    background-color: #11161d;
+    border-radius: 3px;
+    margin: 0 auto 0.45rem auto;
+}
+
+.nokia-brand {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.22em;
+    color: #d0d8e0;
+    margin-bottom: 0.65rem;
+}
+
+/* ecran lcd monocrom */
+.lcd-bezel {
+    background-color: #171d24;
+    padding: 0.6rem;
+    border-radius: 10px;
+    border: 3px solid #0a0d10;
+}
+
+.lcd-screen {
+    background-color: #9bbc0f;
+    color: #0f380f;
+    border: 3px solid #306230;
+    padding: 0.45rem;
+    position: relative;
+}
+
+.lcd-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    font-weight: bold;
+    border-bottom: 2px solid #0f380f;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+.scor-txt {
+    display: none;
+}
+
+/* scor in functie de faza (numarul de mere mancate) */
+#nokia-console input.k0:checked ~ .nokia-body .sc-0 {
+    display: inline;
+}
+
+#nokia-console input.k1:checked ~ .nokia-body .sc-1 {
+    display: inline;
+}
+
+#nokia-console input.k2:checked ~ .nokia-body .sc-2 {
+    display: inline;
+}
+
+#p-win:checked ~ .nokia-body .sc-win,
+#p-over:checked ~ .nokia-body .sc-over {
+    display: inline;
+}
+
+.lcd-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    background-color: #8bac0f;
+    padding: 3px;
+    border: 2px solid #0f380f;
+}
+
+.lcd-grid > div {
+    background-color: #9bbc0f;
+    border: 1px solid rgba(15, 56, 15, 0.14);
+}
+
+.lcd-grid > .wall {
+    background-color: #306230;
+    border: 1px solid #0f380f;
+}
+
+/* animatie multi-proprietate pe mar */
+@keyframes pulseApple {
+    0% {
+        transform: scale(0.78) rotate(0deg);
+        background-color: #0f380f;
+        box-shadow: 0 0 0px #0f380f;
+        border-radius: 50%;
+    }
+    50% {
+        transform: scale(1.06) rotate(45deg);
+        background-color: #306230;
+        box-shadow: 0 0 6px #0f380f;
+        border-radius: 15%;
+    }
+    100% {
+        transform: scale(0.78) rotate(0deg);
+        background-color: #0f380f;
+        box-shadow: 0 0 0px #0f380f;
+        border-radius: 50%;
+    }
+}
+
+/* corpul si coada sarpelui: celulele ocupate in starea curenta */
+#nokia-console input.o1:checked ~ .nokia-body .c1,
+#nokia-console input.o2:checked ~ .nokia-body .c2,
+#nokia-console input.o3:checked ~ .nokia-body .c3,
+#nokia-console input.o4:checked ~ .nokia-body .c4,
+#nokia-console input.o5:checked ~ .nokia-body .c5,
+#nokia-console input.o6:checked ~ .nokia-body .c6,
+#nokia-console input.o7:checked ~ .nokia-body .c7,
+#nokia-console input.o8:checked ~ .nokia-body .c8,
+#nokia-console input.o9:checked ~ .nokia-body .c9,
+#nokia-console input.o10:checked ~ .nokia-body .c10,
+#nokia-console input.o11:checked ~ .nokia-body .c11,
+#nokia-console input.o15:checked ~ .nokia-body .c15,
+#nokia-console input.o16:checked ~ .nokia-body .c16,
+#nokia-console input.o17:checked ~ .nokia-body .c17,
+#nokia-console input.o18:checked ~ .nokia-body .c18,
+#nokia-console input.o19:checked ~ .nokia-body .c19,
+#nokia-console input.o20:checked ~ .nokia-body .c20,
+#nokia-console input.o21:checked ~ .nokia-body .c21,
+#nokia-console input.o22:checked ~ .nokia-body .c22,
+#nokia-console input.o23:checked ~ .nokia-body .c23,
+#nokia-console input.o24:checked ~ .nokia-body .c24,
+#nokia-console input.o25:checked ~ .nokia-body .c25,
+#nokia-console input.o26:checked ~ .nokia-body .c26,
+#nokia-console input.o27:checked ~ .nokia-body .c27,
+#nokia-console input.o28:checked ~ .nokia-body .c28,
+#nokia-console input.o29:checked ~ .nokia-body .c29,
+#nokia-console input.o30:checked ~ .nokia-body .c30,
+#nokia-console input.o31:checked ~ .nokia-body .c31,
+#nokia-console input.o32:checked ~ .nokia-body .c32,
+#nokia-console input.o33:checked ~ .nokia-body .c33,
+#nokia-console input.o34:checked ~ .nokia-body .c34,
+#nokia-console input.o37:checked ~ .nokia-body .c37,
+#nokia-console input.o39:checked ~ .nokia-body .c39,
+#nokia-console input.o40:checked ~ .nokia-body .c40,
+#nokia-console input.o41:checked ~ .nokia-body .c41,
+#nokia-console input.o42:checked ~ .nokia-body .c42,
+#nokia-console input.o43:checked ~ .nokia-body .c43,
+#nokia-console input.o44:checked ~ .nokia-body .c44,
+#nokia-console input.o45:checked ~ .nokia-body .c45,
+#nokia-console input.o46:checked ~ .nokia-body .c46,
+#nokia-console input.o47:checked ~ .nokia-body .c47,
+#nokia-console input.o48:checked ~ .nokia-body .c48,
+#nokia-console input.o49:checked ~ .nokia-body .c49,
+#nokia-console input.o50:checked ~ .nokia-body .c50,
+#nokia-console input.o51:checked ~ .nokia-body .c51,
+#nokia-console input.o52:checked ~ .nokia-body .c52,
+#nokia-console input.o53:checked ~ .nokia-body .c53,
+#nokia-console input.o54:checked ~ .nokia-body .c54,
+#nokia-console input.o55:checked ~ .nokia-body .c55,
+#nokia-console input.o56:checked ~ .nokia-body .c56,
+#nokia-console input.o57:checked ~ .nokia-body .c57,
+#nokia-console input.o58:checked ~ .nokia-body .c58,
+#nokia-console input.o59:checked ~ .nokia-body .c59,
+#nokia-console input.o60:checked ~ .nokia-body .c60,
+#nokia-console input.o61:checked ~ .nokia-body .c61,
+#nokia-console input.o62:checked ~ .nokia-body .c62,
+#nokia-console input.o63:checked ~ .nokia-body .c63,
+#nokia-console input.o64:checked ~ .nokia-body .c64 {
+    background-color: #0f380f;
+    border: 1px solid #0f380f;
+    box-shadow: inset 0 0 0 3px #9bbc0f;
+}
+
+/* capul sarpelui (plin, deasupra corpului) */
+#nokia-console input.h1:checked ~ .nokia-body .c1,
+#nokia-console input.h2:checked ~ .nokia-body .c2,
+#nokia-console input.h3:checked ~ .nokia-body .c3,
+#nokia-console input.h4:checked ~ .nokia-body .c4,
+#nokia-console input.h5:checked ~ .nokia-body .c5,
+#nokia-console input.h6:checked ~ .nokia-body .c6,
+#nokia-console input.h7:checked ~ .nokia-body .c7,
+#nokia-console input.h8:checked ~ .nokia-body .c8,
+#nokia-console input.h9:checked ~ .nokia-body .c9,
+#nokia-console input.h10:checked ~ .nokia-body .c10,
+#nokia-console input.h11:checked ~ .nokia-body .c11,
+#nokia-console input.h15:checked ~ .nokia-body .c15,
+#nokia-console input.h16:checked ~ .nokia-body .c16,
+#nokia-console input.h17:checked ~ .nokia-body .c17,
+#nokia-console input.h18:checked ~ .nokia-body .c18,
+#nokia-console input.h19:checked ~ .nokia-body .c19,
+#nokia-console input.h20:checked ~ .nokia-body .c20,
+#nokia-console input.h21:checked ~ .nokia-body .c21,
+#nokia-console input.h22:checked ~ .nokia-body .c22,
+#nokia-console input.h23:checked ~ .nokia-body .c23,
+#nokia-console input.h24:checked ~ .nokia-body .c24,
+#nokia-console input.h25:checked ~ .nokia-body .c25,
+#nokia-console input.h26:checked ~ .nokia-body .c26,
+#nokia-console input.h27:checked ~ .nokia-body .c27,
+#nokia-console input.h28:checked ~ .nokia-body .c28,
+#nokia-console input.h29:checked ~ .nokia-body .c29,
+#nokia-console input.h30:checked ~ .nokia-body .c30,
+#nokia-console input.h31:checked ~ .nokia-body .c31,
+#nokia-console input.h32:checked ~ .nokia-body .c32,
+#nokia-console input.h33:checked ~ .nokia-body .c33,
+#nokia-console input.h34:checked ~ .nokia-body .c34,
+#nokia-console input.h37:checked ~ .nokia-body .c37,
+#nokia-console input.h39:checked ~ .nokia-body .c39,
+#nokia-console input.h40:checked ~ .nokia-body .c40,
+#nokia-console input.h41:checked ~ .nokia-body .c41,
+#nokia-console input.h42:checked ~ .nokia-body .c42,
+#nokia-console input.h43:checked ~ .nokia-body .c43,
+#nokia-console input.h44:checked ~ .nokia-body .c44,
+#nokia-console input.h45:checked ~ .nokia-body .c45,
+#nokia-console input.h46:checked ~ .nokia-body .c46,
+#nokia-console input.h47:checked ~ .nokia-body .c47,
+#nokia-console input.h48:checked ~ .nokia-body .c48,
+#nokia-console input.h49:checked ~ .nokia-body .c49,
+#nokia-console input.h50:checked ~ .nokia-body .c50,
+#nokia-console input.h51:checked ~ .nokia-body .c51,
+#nokia-console input.h52:checked ~ .nokia-body .c52,
+#nokia-console input.h53:checked ~ .nokia-body .c53,
+#nokia-console input.h54:checked ~ .nokia-body .c54,
+#nokia-console input.h55:checked ~ .nokia-body .c55,
+#nokia-console input.h56:checked ~ .nokia-body .c56,
+#nokia-console input.h57:checked ~ .nokia-body .c57,
+#nokia-console input.h58:checked ~ .nokia-body .c58,
+#nokia-console input.h59:checked ~ .nokia-body .c59,
+#nokia-console input.h60:checked ~ .nokia-body .c60,
+#nokia-console input.h61:checked ~ .nokia-body .c61,
+#nokia-console input.h62:checked ~ .nokia-body .c62,
+#nokia-console input.h63:checked ~ .nokia-body .c63,
+#nokia-console input.h64:checked ~ .nokia-body .c64,
+#p-win:checked ~ .nokia-body .c45 {
+    background-color: #0f380f;
+    border: 1px solid #9bbc0f;
+    box-shadow: none;
+}
+
+/* marul activ (animatie multi-proprietate) */
+#nokia-console input.a1:checked ~ .nokia-body .c24,
+#nokia-console input.a2:checked ~ .nokia-body .c48,
+#nokia-console input.a3:checked ~ .nokia-body .c45 {
+    animation: pulseApple 1.2s infinite ease-in-out;
+}
+
+
+.lcd-overlay {
+    display: none;
+    position: absolute;
+    top: 26px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background-color: rgba(155, 188, 15, 0.94);
+    border: 2px solid #0f380f;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem;
+}
+
+#p-win:checked ~ .nokia-body .overlay-win,
+#p-over:checked ~ .nokia-body .overlay-over {
+    display: flex;
+}
+
+.overlay-titlu {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-bottom: 0.35rem;
+}
+
+.btn-lcd {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    background-color: #0f380f;
+    color: #9bbc0f;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.dpad-wrapper {
+    margin-top: 0.9rem;
+}
+
+.dpad-set {
+    display: none;
+    grid-template-columns: repeat(3, 48px);
+    gap: 6px;
+    justify-content: center;
+}
+
+/* afisarea setului de butoane corespunzator pozitiei curente */
+#s0:checked ~ .nokia-body .d0,
+#s1:checked ~ .nokia-body .d1,
+#s2:checked ~ .nokia-body .d2,
+#s3:checked ~ .nokia-body .d3,
+#s4:checked ~ .nokia-body .d4,
+#s5:checked ~ .nokia-body .d5,
+#s6:checked ~ .nokia-body .d6,
+#s7:checked ~ .nokia-body .d7,
+#s8:checked ~ .nokia-body .d8,
+#s9:checked ~ .nokia-body .d9,
+#s10:checked ~ .nokia-body .d10,
+#s11:checked ~ .nokia-body .d11,
+#s12:checked ~ .nokia-body .d12,
+#s13:checked ~ .nokia-body .d13,
+#s14:checked ~ .nokia-body .d14,
+#s15:checked ~ .nokia-body .d15,
+#s16:checked ~ .nokia-body .d16,
+#s17:checked ~ .nokia-body .d17,
+#s18:checked ~ .nokia-body .d18,
+#s19:checked ~ .nokia-body .d19,
+#s20:checked ~ .nokia-body .d20,
+#s21:checked ~ .nokia-body .d21,
+#s22:checked ~ .nokia-body .d22,
+#s23:checked ~ .nokia-body .d23,
+#s24:checked ~ .nokia-body .d24,
+#s25:checked ~ .nokia-body .d25,
+#s26:checked ~ .nokia-body .d26,
+#s27:checked ~ .nokia-body .d27,
+#s28:checked ~ .nokia-body .d28,
+#s29:checked ~ .nokia-body .d29,
+#s30:checked ~ .nokia-body .d30,
+#s31:checked ~ .nokia-body .d31,
+#s32:checked ~ .nokia-body .d32,
+#s33:checked ~ .nokia-body .d33,
+#s34:checked ~ .nokia-body .d34,
+#s35:checked ~ .nokia-body .d35,
+#s36:checked ~ .nokia-body .d36,
+#s37:checked ~ .nokia-body .d37,
+#s38:checked ~ .nokia-body .d38,
+#s39:checked ~ .nokia-body .d39,
+#s40:checked ~ .nokia-body .d40,
+#s41:checked ~ .nokia-body .d41,
+#s42:checked ~ .nokia-body .d42,
+#s43:checked ~ .nokia-body .d43,
+#s44:checked ~ .nokia-body .d44,
+#s45:checked ~ .nokia-body .d45,
+#s46:checked ~ .nokia-body .d46,
+#s47:checked ~ .nokia-body .d47,
+#s48:checked ~ .nokia-body .d48,
+#s49:checked ~ .nokia-body .d49,
+#s50:checked ~ .nokia-body .d50,
+#s51:checked ~ .nokia-body .d51,
+#s52:checked ~ .nokia-body .d52,
+#s53:checked ~ .nokia-body .d53,
+#s54:checked ~ .nokia-body .d54,
+#s55:checked ~ .nokia-body .d55,
+#s56:checked ~ .nokia-body .d56,
+#s57:checked ~ .nokia-body .d57,
+#s58:checked ~ .nokia-body .d58,
+#s59:checked ~ .nokia-body .d59,
+#s60:checked ~ .nokia-body .d60,
+#s61:checked ~ .nokia-body .d61,
+#s62:checked ~ .nokia-body .d62,
+#s63:checked ~ .nokia-body .d63,
+#s64:checked ~ .nokia-body .d64,
+#s65:checked ~ .nokia-body .d65,
+#s66:checked ~ .nokia-body .d66,
+#s67:checked ~ .nokia-body .d67,
+#s68:checked ~ .nokia-body .d68,
+#s69:checked ~ .nokia-body .d69,
+#s70:checked ~ .nokia-body .d70,
+#s71:checked ~ .nokia-body .d71,
+#s72:checked ~ .nokia-body .d72,
+#s73:checked ~ .nokia-body .d73,
+#s74:checked ~ .nokia-body .d74,
+#s75:checked ~ .nokia-body .d75,
+#s76:checked ~ .nokia-body .d76,
+#s77:checked ~ .nokia-body .d77,
+#s78:checked ~ .nokia-body .d78,
+#s79:checked ~ .nokia-body .d79,
+#s80:checked ~ .nokia-body .d80,
+#s81:checked ~ .nokia-body .d81,
+#s82:checked ~ .nokia-body .d82,
+#s83:checked ~ .nokia-body .d83,
+#s84:checked ~ .nokia-body .d84,
+#s85:checked ~ .nokia-body .d85,
+#s86:checked ~ .nokia-body .d86,
+#s87:checked ~ .nokia-body .d87,
+#s88:checked ~ .nokia-body .d88,
+#s89:checked ~ .nokia-body .d89,
+#s90:checked ~ .nokia-body .d90,
+#s91:checked ~ .nokia-body .d91,
+#s92:checked ~ .nokia-body .d92,
+#s93:checked ~ .nokia-body .d93,
+#s94:checked ~ .nokia-body .d94,
+#s95:checked ~ .nokia-body .d95,
+#s96:checked ~ .nokia-body .d96,
+#s97:checked ~ .nokia-body .d97,
+#s98:checked ~ .nokia-body .d98,
+#s99:checked ~ .nokia-body .d99,
+#s100:checked ~ .nokia-body .d100,
+#s101:checked ~ .nokia-body .d101,
+#s102:checked ~ .nokia-body .d102,
+#s103:checked ~ .nokia-body .d103,
+#s104:checked ~ .nokia-body .d104,
+#s105:checked ~ .nokia-body .d105,
+#s106:checked ~ .nokia-body .d106,
+#s107:checked ~ .nokia-body .d107,
+#s108:checked ~ .nokia-body .d108,
+#s109:checked ~ .nokia-body .d109,
+#s110:checked ~ .nokia-body .d110,
+#s111:checked ~ .nokia-body .d111,
+#s112:checked ~ .nokia-body .d112,
+#s113:checked ~ .nokia-body .d113,
+#s114:checked ~ .nokia-body .d114,
+#s115:checked ~ .nokia-body .d115,
+#s116:checked ~ .nokia-body .d116,
+#s117:checked ~ .nokia-body .d117,
+#s118:checked ~ .nokia-body .d118,
+#s119:checked ~ .nokia-body .d119,
+#s120:checked ~ .nokia-body .d120,
+#s121:checked ~ .nokia-body .d121,
+#s122:checked ~ .nokia-body .d122,
+#s123:checked ~ .nokia-body .d123,
+#s124:checked ~ .nokia-body .d124,
+#s125:checked ~ .nokia-body .d125,
+#s126:checked ~ .nokia-body .d126,
+#s127:checked ~ .nokia-body .d127,
+#s128:checked ~ .nokia-body .d128,
+#s129:checked ~ .nokia-body .d129,
+#s130:checked ~ .nokia-body .d130,
+#s131:checked ~ .nokia-body .d131,
+#s132:checked ~ .nokia-body .d132,
+#s133:checked ~ .nokia-body .d133,
+#s134:checked ~ .nokia-body .d134,
+#s135:checked ~ .nokia-body .d135,
+#s136:checked ~ .nokia-body .d136,
+#s137:checked ~ .nokia-body .d137,
+#s138:checked ~ .nokia-body .d138,
+#s139:checked ~ .nokia-body .d139,
+#s140:checked ~ .nokia-body .d140,
+#s141:checked ~ .nokia-body .d141,
+#s142:checked ~ .nokia-body .d142,
+#s143:checked ~ .nokia-body .d143,
+#s144:checked ~ .nokia-body .d144,
+#s145:checked ~ .nokia-body .d145,
+#s146:checked ~ .nokia-body .d146,
+#s147:checked ~ .nokia-body .d147,
+#s148:checked ~ .nokia-body .d148,
+#s149:checked ~ .nokia-body .d149,
+#s150:checked ~ .nokia-body .d150,
+#s151:checked ~ .nokia-body .d151,
+#s152:checked ~ .nokia-body .d152,
+#s153:checked ~ .nokia-body .d153,
+#s154:checked ~ .nokia-body .d154,
+#s155:checked ~ .nokia-body .d155,
+#s156:checked ~ .nokia-body .d156,
+#s157:checked ~ .nokia-body .d157,
+#s158:checked ~ .nokia-body .d158,
+#s159:checked ~ .nokia-body .d159,
+#s160:checked ~ .nokia-body .d160,
+#s161:checked ~ .nokia-body .d161,
+#s162:checked ~ .nokia-body .d162,
+#s163:checked ~ .nokia-body .d163,
+#s164:checked ~ .nokia-body .d164,
+#s165:checked ~ .nokia-body .d165,
+#s166:checked ~ .nokia-body .d166,
+#s167:checked ~ .nokia-body .d167,
+#s168:checked ~ .nokia-body .d168,
+#s169:checked ~ .nokia-body .d169,
+#s170:checked ~ .nokia-body .d170,
+#s171:checked ~ .nokia-body .d171,
+#s172:checked ~ .nokia-body .d172,
+#s173:checked ~ .nokia-body .d173,
+#s174:checked ~ .nokia-body .d174,
+#s175:checked ~ .nokia-body .d175,
+#s176:checked ~ .nokia-body .d176,
+#s177:checked ~ .nokia-body .d177,
+#s178:checked ~ .nokia-body .d178,
+#s179:checked ~ .nokia-body .d179,
+#s180:checked ~ .nokia-body .d180,
+#s181:checked ~ .nokia-body .d181,
+#s182:checked ~ .nokia-body .d182,
+#s183:checked ~ .nokia-body .d183,
+#s184:checked ~ .nokia-body .d184,
+#s185:checked ~ .nokia-body .d185,
+#s186:checked ~ .nokia-body .d186,
+#s187:checked ~ .nokia-body .d187,
+#s188:checked ~ .nokia-body .d188,
+#s189:checked ~ .nokia-body .d189,
+#s190:checked ~ .nokia-body .d190,
+#s191:checked ~ .nokia-body .d191,
+#s192:checked ~ .nokia-body .d192,
+#s193:checked ~ .nokia-body .d193,
+#s194:checked ~ .nokia-body .d194,
+#s195:checked ~ .nokia-body .d195,
+#s196:checked ~ .nokia-body .d196,
+#s197:checked ~ .nokia-body .d197,
+#s198:checked ~ .nokia-body .d198,
+#s199:checked ~ .nokia-body .d199,
+#s200:checked ~ .nokia-body .d200,
+#s201:checked ~ .nokia-body .d201,
+#s202:checked ~ .nokia-body .d202,
+#s203:checked ~ .nokia-body .d203,
+#s204:checked ~ .nokia-body .d204,
+#s205:checked ~ .nokia-body .d205,
+#s206:checked ~ .nokia-body .d206,
+#s207:checked ~ .nokia-body .d207,
+#s208:checked ~ .nokia-body .d208,
+#s209:checked ~ .nokia-body .d209,
+#s210:checked ~ .nokia-body .d210,
+#s211:checked ~ .nokia-body .d211,
+#s212:checked ~ .nokia-body .d212,
+#s213:checked ~ .nokia-body .d213,
+#s214:checked ~ .nokia-body .d214,
+#s215:checked ~ .nokia-body .d215,
+#s216:checked ~ .nokia-body .d216,
+#s217:checked ~ .nokia-body .d217,
+#s218:checked ~ .nokia-body .d218,
+#s219:checked ~ .nokia-body .d219,
+#s220:checked ~ .nokia-body .d220,
+#s221:checked ~ .nokia-body .d221,
+#s222:checked ~ .nokia-body .d222,
+#s223:checked ~ .nokia-body .d223,
+#s224:checked ~ .nokia-body .d224,
+#s225:checked ~ .nokia-body .d225,
+#s226:checked ~ .nokia-body .d226,
+#s227:checked ~ .nokia-body .d227,
+#s228:checked ~ .nokia-body .d228,
+#s229:checked ~ .nokia-body .d229,
+#s230:checked ~ .nokia-body .d230,
+#s231:checked ~ .nokia-body .d231,
+#s232:checked ~ .nokia-body .d232,
+#s233:checked ~ .nokia-body .d233,
+#s234:checked ~ .nokia-body .d234,
+#s235:checked ~ .nokia-body .d235,
+#s236:checked ~ .nokia-body .d236,
+#s237:checked ~ .nokia-body .d237,
+#s238:checked ~ .nokia-body .d238,
+#s239:checked ~ .nokia-body .d239,
+#s240:checked ~ .nokia-body .d240,
+#s241:checked ~ .nokia-body .d241,
+#s242:checked ~ .nokia-body .d242,
+#s243:checked ~ .nokia-body .d243,
+#s244:checked ~ .nokia-body .d244,
+#s245:checked ~ .nokia-body .d245,
+#s246:checked ~ .nokia-body .d246,
+#s247:checked ~ .nokia-body .d247,
+#s248:checked ~ .nokia-body .d248,
+#s249:checked ~ .nokia-body .d249,
+#s250:checked ~ .nokia-body .d250,
+#s251:checked ~ .nokia-body .d251,
+#s252:checked ~ .nokia-body .d252,
+#s253:checked ~ .nokia-body .d253,
+#s254:checked ~ .nokia-body .d254,
+#s255:checked ~ .nokia-body .d255,
+#s256:checked ~ .nokia-body .d256,
+#s257:checked ~ .nokia-body .d257,
+#s258:checked ~ .nokia-body .d258,
+#s259:checked ~ .nokia-body .d259,
+#s260:checked ~ .nokia-body .d260,
+#s261:checked ~ .nokia-body .d261,
+#s262:checked ~ .nokia-body .d262,
+#s263:checked ~ .nokia-body .d263,
+#s264:checked ~ .nokia-body .d264,
+#s265:checked ~ .nokia-body .d265,
+#s266:checked ~ .nokia-body .d266,
+#s267:checked ~ .nokia-body .d267,
+#s268:checked ~ .nokia-body .d268,
+#s269:checked ~ .nokia-body .d269,
+#s270:checked ~ .nokia-body .d270,
+#s271:checked ~ .nokia-body .d271,
+#s272:checked ~ .nokia-body .d272,
+#s273:checked ~ .nokia-body .d273,
+#s274:checked ~ .nokia-body .d274,
+#s275:checked ~ .nokia-body .d275,
+#s276:checked ~ .nokia-body .d276,
+#s277:checked ~ .nokia-body .d277,
+#s278:checked ~ .nokia-body .d278,
+#s279:checked ~ .nokia-body .d279,
+#s280:checked ~ .nokia-body .d280,
+#s281:checked ~ .nokia-body .d281,
+#s282:checked ~ .nokia-body .d282,
+#s283:checked ~ .nokia-body .d283,
+#s284:checked ~ .nokia-body .d284,
+#s285:checked ~ .nokia-body .d285,
+#s286:checked ~ .nokia-body .d286,
+#s287:checked ~ .nokia-body .d287,
+#s288:checked ~ .nokia-body .d288,
+#s289:checked ~ .nokia-body .d289,
+#s290:checked ~ .nokia-body .d290,
+#s291:checked ~ .nokia-body .d291,
+#s292:checked ~ .nokia-body .d292,
+#s293:checked ~ .nokia-body .d293,
+#s294:checked ~ .nokia-body .d294,
+#s295:checked ~ .nokia-body .d295,
+#s296:checked ~ .nokia-body .d296,
+#s297:checked ~ .nokia-body .d297,
+#s298:checked ~ .nokia-body .d298,
+#s299:checked ~ .nokia-body .d299,
+#s300:checked ~ .nokia-body .d300,
+#s301:checked ~ .nokia-body .d301,
+#s302:checked ~ .nokia-body .d302,
+#s303:checked ~ .nokia-body .d303,
+#s304:checked ~ .nokia-body .d304,
+#s305:checked ~ .nokia-body .d305,
+#s306:checked ~ .nokia-body .d306,
+#s307:checked ~ .nokia-body .d307,
+#s308:checked ~ .nokia-body .d308,
+#s309:checked ~ .nokia-body .d309,
+#s310:checked ~ .nokia-body .d310,
+#s311:checked ~ .nokia-body .d311,
+#s312:checked ~ .nokia-body .d312,
+#s313:checked ~ .nokia-body .d313,
+#s314:checked ~ .nokia-body .d314,
+#s315:checked ~ .nokia-body .d315,
+#s316:checked ~ .nokia-body .d316,
+#s317:checked ~ .nokia-body .d317,
+#s318:checked ~ .nokia-body .d318,
+#s319:checked ~ .nokia-body .d319,
+#s320:checked ~ .nokia-body .d320,
+#s321:checked ~ .nokia-body .d321,
+#s322:checked ~ .nokia-body .d322,
+#s323:checked ~ .nokia-body .d323,
+#s324:checked ~ .nokia-body .d324,
+#s325:checked ~ .nokia-body .d325,
+#s326:checked ~ .nokia-body .d326,
+#s327:checked ~ .nokia-body .d327,
+#s328:checked ~ .nokia-body .d328,
+#s329:checked ~ .nokia-body .d329,
+#s330:checked ~ .nokia-body .d330,
+#s331:checked ~ .nokia-body .d331,
+#s332:checked ~ .nokia-body .d332,
+#s333:checked ~ .nokia-body .d333,
+#s334:checked ~ .nokia-body .d334,
+#s335:checked ~ .nokia-body .d335,
+#s336:checked ~ .nokia-body .d336,
+#s337:checked ~ .nokia-body .d337,
+#s338:checked ~ .nokia-body .d338,
+#s339:checked ~ .nokia-body .d339,
+#s340:checked ~ .nokia-body .d340,
+#s341:checked ~ .nokia-body .d341,
+#s342:checked ~ .nokia-body .d342,
+#s343:checked ~ .nokia-body .d343,
+#s344:checked ~ .nokia-body .d344,
+#s345:checked ~ .nokia-body .d345,
+#s346:checked ~ .nokia-body .d346,
+#s347:checked ~ .nokia-body .d347,
+#s348:checked ~ .nokia-body .d348,
+#s349:checked ~ .nokia-body .d349,
+#s350:checked ~ .nokia-body .d350,
+#s351:checked ~ .nokia-body .d351,
+#s352:checked ~ .nokia-body .d352,
+#s353:checked ~ .nokia-body .d353,
+#s354:checked ~ .nokia-body .d354,
+#s355:checked ~ .nokia-body .d355,
+#s356:checked ~ .nokia-body .d356,
+#s357:checked ~ .nokia-body .d357,
+#s358:checked ~ .nokia-body .d358,
+#s359:checked ~ .nokia-body .d359,
+#s360:checked ~ .nokia-body .d360,
+#s361:checked ~ .nokia-body .d361,
+#s362:checked ~ .nokia-body .d362,
+#s363:checked ~ .nokia-body .d363,
+#s364:checked ~ .nokia-body .d364,
+#s365:checked ~ .nokia-body .d365,
+#s366:checked ~ .nokia-body .d366,
+#s367:checked ~ .nokia-body .d367,
+#s368:checked ~ .nokia-body .d368,
+#s369:checked ~ .nokia-body .d369,
+#s370:checked ~ .nokia-body .d370,
+#s371:checked ~ .nokia-body .d371,
+#s372:checked ~ .nokia-body .d372,
+#s373:checked ~ .nokia-body .d373,
+#s374:checked ~ .nokia-body .d374,
+#s375:checked ~ .nokia-body .d375,
+#s376:checked ~ .nokia-body .d376,
+#s377:checked ~ .nokia-body .d377,
+#s378:checked ~ .nokia-body .d378,
+#s379:checked ~ .nokia-body .d379,
+#s380:checked ~ .nokia-body .d380,
+#s381:checked ~ .nokia-body .d381,
+#s382:checked ~ .nokia-body .d382,
+#s383:checked ~ .nokia-body .d383,
+#s384:checked ~ .nokia-body .d384,
+#s385:checked ~ .nokia-body .d385,
+#s386:checked ~ .nokia-body .d386,
+#s387:checked ~ .nokia-body .d387,
+#s388:checked ~ .nokia-body .d388,
+#s389:checked ~ .nokia-body .d389,
+#s390:checked ~ .nokia-body .d390,
+#s391:checked ~ .nokia-body .d391,
+#s392:checked ~ .nokia-body .d392,
+#s393:checked ~ .nokia-body .d393,
+#s394:checked ~ .nokia-body .d394,
+#s395:checked ~ .nokia-body .d395,
+#s396:checked ~ .nokia-body .d396,
+#s397:checked ~ .nokia-body .d397,
+#s398:checked ~ .nokia-body .d398,
+#s399:checked ~ .nokia-body .d399,
+#s400:checked ~ .nokia-body .d400,
+#s401:checked ~ .nokia-body .d401,
+#s402:checked ~ .nokia-body .d402,
+#s403:checked ~ .nokia-body .d403,
+#s404:checked ~ .nokia-body .d404,
+#s405:checked ~ .nokia-body .d405,
+#s406:checked ~ .nokia-body .d406,
+#s407:checked ~ .nokia-body .d407,
+#s408:checked ~ .nokia-body .d408,
+#s409:checked ~ .nokia-body .d409,
+#s410:checked ~ .nokia-body .d410,
+#s411:checked ~ .nokia-body .d411,
+#s412:checked ~ .nokia-body .d412,
+#s413:checked ~ .nokia-body .d413,
+#s414:checked ~ .nokia-body .d414,
+#s415:checked ~ .nokia-body .d415,
+#s416:checked ~ .nokia-body .d416,
+#s417:checked ~ .nokia-body .d417,
+#s418:checked ~ .nokia-body .d418,
+#s419:checked ~ .nokia-body .d419,
+#s420:checked ~ .nokia-body .d420,
+#s421:checked ~ .nokia-body .d421,
+#s422:checked ~ .nokia-body .d422,
+#s423:checked ~ .nokia-body .d423,
+#s424:checked ~ .nokia-body .d424,
+#s425:checked ~ .nokia-body .d425,
+#s426:checked ~ .nokia-body .d426,
+#s427:checked ~ .nokia-body .d427,
+#s428:checked ~ .nokia-body .d428,
+#s429:checked ~ .nokia-body .d429,
+#s430:checked ~ .nokia-body .d430,
+#s431:checked ~ .nokia-body .d431,
+#s432:checked ~ .nokia-body .d432,
+#s433:checked ~ .nokia-body .d433,
+#s434:checked ~ .nokia-body .d434,
+#s435:checked ~ .nokia-body .d435,
+#s436:checked ~ .nokia-body .d436,
+#s437:checked ~ .nokia-body .d437,
+#s438:checked ~ .nokia-body .d438,
+#s439:checked ~ .nokia-body .d439,
+#s440:checked ~ .nokia-body .d440,
+#s441:checked ~ .nokia-body .d441,
+#s442:checked ~ .nokia-body .d442,
+#s443:checked ~ .nokia-body .d443,
+#s444:checked ~ .nokia-body .d444,
+#s445:checked ~ .nokia-body .d445,
+#s446:checked ~ .nokia-body .d446,
+#s447:checked ~ .nokia-body .d447,
+#s448:checked ~ .nokia-body .d448,
+#s449:checked ~ .nokia-body .d449,
+#s450:checked ~ .nokia-body .d450,
+#s451:checked ~ .nokia-body .d451,
+#s452:checked ~ .nokia-body .d452,
+#s453:checked ~ .nokia-body .d453,
+#s454:checked ~ .nokia-body .d454,
+#s455:checked ~ .nokia-body .d455,
+#s456:checked ~ .nokia-body .d456,
+#s457:checked ~ .nokia-body .d457,
+#s458:checked ~ .nokia-body .d458,
+#s459:checked ~ .nokia-body .d459,
+#s460:checked ~ .nokia-body .d460,
+#s461:checked ~ .nokia-body .d461,
+#s462:checked ~ .nokia-body .d462,
+#s463:checked ~ .nokia-body .d463,
+#s464:checked ~ .nokia-body .d464,
+#s465:checked ~ .nokia-body .d465,
+#s466:checked ~ .nokia-body .d466,
+#s467:checked ~ .nokia-body .d467,
+#s468:checked ~ .nokia-body .d468,
+#s469:checked ~ .nokia-body .d469,
+#s470:checked ~ .nokia-body .d470,
+#s471:checked ~ .nokia-body .d471,
+#s472:checked ~ .nokia-body .d472,
+#s473:checked ~ .nokia-body .d473,
+#s474:checked ~ .nokia-body .d474,
+#s475:checked ~ .nokia-body .d475,
+#s476:checked ~ .nokia-body .d476,
+#s477:checked ~ .nokia-body .d477,
+#s478:checked ~ .nokia-body .d478,
+#s479:checked ~ .nokia-body .d479,
+#s480:checked ~ .nokia-body .d480,
+#s481:checked ~ .nokia-body .d481,
+#s482:checked ~ .nokia-body .d482,
+#s483:checked ~ .nokia-body .d483,
+#s484:checked ~ .nokia-body .d484,
+#s485:checked ~ .nokia-body .d485,
+#s486:checked ~ .nokia-body .d486,
+#s487:checked ~ .nokia-body .d487,
+#s488:checked ~ .nokia-body .d488,
+#s489:checked ~ .nokia-body .d489,
+#s490:checked ~ .nokia-body .d490,
+#s491:checked ~ .nokia-body .d491,
+#s492:checked ~ .nokia-body .d492,
+#s493:checked ~ .nokia-body .d493,
+#s494:checked ~ .nokia-body .d494,
+#s495:checked ~ .nokia-body .d495,
+#s496:checked ~ .nokia-body .d496,
+#s497:checked ~ .nokia-body .d497,
+#s498:checked ~ .nokia-body .d498,
+#s499:checked ~ .nokia-body .d499,
+#s500:checked ~ .nokia-body .d500,
+#s501:checked ~ .nokia-body .d501,
+#s502:checked ~ .nokia-body .d502,
+#s503:checked ~ .nokia-body .d503,
+#s504:checked ~ .nokia-body .d504,
+#s505:checked ~ .nokia-body .d505,
+#s506:checked ~ .nokia-body .d506,
+#s507:checked ~ .nokia-body .d507,
+#s508:checked ~ .nokia-body .d508,
+#s509:checked ~ .nokia-body .d509,
+#s510:checked ~ .nokia-body .d510,
+#s511:checked ~ .nokia-body .d511,
+#s512:checked ~ .nokia-body .d512,
+#s513:checked ~ .nokia-body .d513,
+#s514:checked ~ .nokia-body .d514,
+#s515:checked ~ .nokia-body .d515,
+#s516:checked ~ .nokia-body .d516,
+#s517:checked ~ .nokia-body .d517,
+#s518:checked ~ .nokia-body .d518,
+#s519:checked ~ .nokia-body .d519,
+#s520:checked ~ .nokia-body .d520,
+#s521:checked ~ .nokia-body .d521,
+#s522:checked ~ .nokia-body .d522,
+#s523:checked ~ .nokia-body .d523,
+#s524:checked ~ .nokia-body .d524,
+#s525:checked ~ .nokia-body .d525,
+#s526:checked ~ .nokia-body .d526,
+#s527:checked ~ .nokia-body .d527,
+#s528:checked ~ .nokia-body .d528,
+#s529:checked ~ .nokia-body .d529,
+#s530:checked ~ .nokia-body .d530,
+#s531:checked ~ .nokia-body .d531,
+#s532:checked ~ .nokia-body .d532,
+#s533:checked ~ .nokia-body .d533,
+#s534:checked ~ .nokia-body .d534,
+#s535:checked ~ .nokia-body .d535,
+#s536:checked ~ .nokia-body .d536,
+#s537:checked ~ .nokia-body .d537,
+#s538:checked ~ .nokia-body .d538,
+#s539:checked ~ .nokia-body .d539,
+#s540:checked ~ .nokia-body .d540,
+#s541:checked ~ .nokia-body .d541,
+#s542:checked ~ .nokia-body .d542,
+#s543:checked ~ .nokia-body .d543,
+#s544:checked ~ .nokia-body .d544,
+#s545:checked ~ .nokia-body .d545,
+#s546:checked ~ .nokia-body .d546,
+#s547:checked ~ .nokia-body .d547,
+#s548:checked ~ .nokia-body .d548,
+#s549:checked ~ .nokia-body .d549,
+#s550:checked ~ .nokia-body .d550,
+#s551:checked ~ .nokia-body .d551,
+#s552:checked ~ .nokia-body .d552,
+#s553:checked ~ .nokia-body .d553,
+#s554:checked ~ .nokia-body .d554,
+#s555:checked ~ .nokia-body .d555,
+#s556:checked ~ .nokia-body .d556,
+#s557:checked ~ .nokia-body .d557,
+#s558:checked ~ .nokia-body .d558,
+#s559:checked ~ .nokia-body .d559,
+#s560:checked ~ .nokia-body .d560,
+#s561:checked ~ .nokia-body .d561,
+#s562:checked ~ .nokia-body .d562,
+#s563:checked ~ .nokia-body .d563,
+#s564:checked ~ .nokia-body .d564,
+#s565:checked ~ .nokia-body .d565,
+#s566:checked ~ .nokia-body .d566,
+#s567:checked ~ .nokia-body .d567,
+#s568:checked ~ .nokia-body .d568,
+#s569:checked ~ .nokia-body .d569,
+#s570:checked ~ .nokia-body .d570,
+#s571:checked ~ .nokia-body .d571,
+#s572:checked ~ .nokia-body .d572,
+#s573:checked ~ .nokia-body .d573,
+#s574:checked ~ .nokia-body .d574,
+#s575:checked ~ .nokia-body .d575,
+#s576:checked ~ .nokia-body .d576,
+#s577:checked ~ .nokia-body .d577,
+#s578:checked ~ .nokia-body .d578,
+#s579:checked ~ .nokia-body .d579,
+#s580:checked ~ .nokia-body .d580,
+#s581:checked ~ .nokia-body .d581,
+#s582:checked ~ .nokia-body .d582,
+#s583:checked ~ .nokia-body .d583,
+#s584:checked ~ .nokia-body .d584,
+#s585:checked ~ .nokia-body .d585,
+#s586:checked ~ .nokia-body .d586,
+#s587:checked ~ .nokia-body .d587,
+#s588:checked ~ .nokia-body .d588,
+#s589:checked ~ .nokia-body .d589,
+#s590:checked ~ .nokia-body .d590,
+#s591:checked ~ .nokia-body .d591,
+#s592:checked ~ .nokia-body .d592,
+#s593:checked ~ .nokia-body .d593,
+#s594:checked ~ .nokia-body .d594,
+#s595:checked ~ .nokia-body .d595,
+#s596:checked ~ .nokia-body .d596,
+#s597:checked ~ .nokia-body .d597,
+#s598:checked ~ .nokia-body .d598,
+#s599:checked ~ .nokia-body .d599,
+#s600:checked ~ .nokia-body .d600,
+#s601:checked ~ .nokia-body .d601,
+#s602:checked ~ .nokia-body .d602,
+#s603:checked ~ .nokia-body .d603,
+#s604:checked ~ .nokia-body .d604,
+#s605:checked ~ .nokia-body .d605,
+#s606:checked ~ .nokia-body .d606,
+#s607:checked ~ .nokia-body .d607,
+#s608:checked ~ .nokia-body .d608,
+#s609:checked ~ .nokia-body .d609,
+#s610:checked ~ .nokia-body .d610,
+#s611:checked ~ .nokia-body .d611,
+#s612:checked ~ .nokia-body .d612,
+#s613:checked ~ .nokia-body .d613,
+#s614:checked ~ .nokia-body .d614,
+#s615:checked ~ .nokia-body .d615,
+#s616:checked ~ .nokia-body .d616,
+#s617:checked ~ .nokia-body .d617,
+#s618:checked ~ .nokia-body .d618,
+#s619:checked ~ .nokia-body .d619,
+#s620:checked ~ .nokia-body .d620,
+#s621:checked ~ .nokia-body .d621,
+#s622:checked ~ .nokia-body .d622,
+#s623:checked ~ .nokia-body .d623,
+#s624:checked ~ .nokia-body .d624,
+#s625:checked ~ .nokia-body .d625,
+#s626:checked ~ .nokia-body .d626,
+#s627:checked ~ .nokia-body .d627,
+#s628:checked ~ .nokia-body .d628,
+#s629:checked ~ .nokia-body .d629,
+#s630:checked ~ .nokia-body .d630,
+#s631:checked ~ .nokia-body .d631,
+#s632:checked ~ .nokia-body .d632,
+#s633:checked ~ .nokia-body .d633,
+#s634:checked ~ .nokia-body .d634,
+#s635:checked ~ .nokia-body .d635,
+#s636:checked ~ .nokia-body .d636,
+#s637:checked ~ .nokia-body .d637,
+#s638:checked ~ .nokia-body .d638,
+#s639:checked ~ .nokia-body .d639,
+#s640:checked ~ .nokia-body .d640,
+#s641:checked ~ .nokia-body .d641,
+#s642:checked ~ .nokia-body .d642,
+#s643:checked ~ .nokia-body .d643,
+#s644:checked ~ .nokia-body .d644,
+#s645:checked ~ .nokia-body .d645,
+#s646:checked ~ .nokia-body .d646,
+#s647:checked ~ .nokia-body .d647,
+#s648:checked ~ .nokia-body .d648,
+#s649:checked ~ .nokia-body .d649,
+#s650:checked ~ .nokia-body .d650,
+#s651:checked ~ .nokia-body .d651,
+#s652:checked ~ .nokia-body .d652,
+#s653:checked ~ .nokia-body .d653,
+#s654:checked ~ .nokia-body .d654,
+#s655:checked ~ .nokia-body .d655,
+#s656:checked ~ .nokia-body .d656,
+#s657:checked ~ .nokia-body .d657,
+#s658:checked ~ .nokia-body .d658,
+#s659:checked ~ .nokia-body .d659,
+#s660:checked ~ .nokia-body .d660,
+#s661:checked ~ .nokia-body .d661,
+#s662:checked ~ .nokia-body .d662,
+#s663:checked ~ .nokia-body .d663,
+#s664:checked ~ .nokia-body .d664,
+#s665:checked ~ .nokia-body .d665,
+#s666:checked ~ .nokia-body .d666,
+#s667:checked ~ .nokia-body .d667,
+#s668:checked ~ .nokia-body .d668,
+#s669:checked ~ .nokia-body .d669,
+#s670:checked ~ .nokia-body .d670,
+#s671:checked ~ .nokia-body .d671,
+#s672:checked ~ .nokia-body .d672,
+#s673:checked ~ .nokia-body .d673,
+#s674:checked ~ .nokia-body .d674,
+#s675:checked ~ .nokia-body .d675,
+#s676:checked ~ .nokia-body .d676,
+#s677:checked ~ .nokia-body .d677,
+#s678:checked ~ .nokia-body .d678,
+#s679:checked ~ .nokia-body .d679,
+#s680:checked ~ .nokia-body .d680,
+#s681:checked ~ .nokia-body .d681,
+#s682:checked ~ .nokia-body .d682,
+#s683:checked ~ .nokia-body .d683,
+#s684:checked ~ .nokia-body .d684,
+#s685:checked ~ .nokia-body .d685,
+#s686:checked ~ .nokia-body .d686,
+#s687:checked ~ .nokia-body .d687,
+#s688:checked ~ .nokia-body .d688,
+#s689:checked ~ .nokia-body .d689,
+#s690:checked ~ .nokia-body .d690,
+#s691:checked ~ .nokia-body .d691,
+#s692:checked ~ .nokia-body .d692,
+#s693:checked ~ .nokia-body .d693,
+#s694:checked ~ .nokia-body .d694,
+#s695:checked ~ .nokia-body .d695,
+#s696:checked ~ .nokia-body .d696,
+#s697:checked ~ .nokia-body .d697,
+#s698:checked ~ .nokia-body .d698,
+#s699:checked ~ .nokia-body .d699,
+#s700:checked ~ .nokia-body .d700,
+#s701:checked ~ .nokia-body .d701,
+#s702:checked ~ .nokia-body .d702,
+#s703:checked ~ .nokia-body .d703,
+#s704:checked ~ .nokia-body .d704,
+#s705:checked ~ .nokia-body .d705,
+#s706:checked ~ .nokia-body .d706,
+#s707:checked ~ .nokia-body .d707,
+#s708:checked ~ .nokia-body .d708,
+#s709:checked ~ .nokia-body .d709,
+#s710:checked ~ .nokia-body .d710,
+#s711:checked ~ .nokia-body .d711,
+#s712:checked ~ .nokia-body .d712,
+#s713:checked ~ .nokia-body .d713,
+#s714:checked ~ .nokia-body .d714,
+#s715:checked ~ .nokia-body .d715,
+#s716:checked ~ .nokia-body .d716,
+#s717:checked ~ .nokia-body .d717,
+#s718:checked ~ .nokia-body .d718,
+#s719:checked ~ .nokia-body .d719,
+#s720:checked ~ .nokia-body .d720,
+#s721:checked ~ .nokia-body .d721,
+#s722:checked ~ .nokia-body .d722,
+#s723:checked ~ .nokia-body .d723,
+#s724:checked ~ .nokia-body .d724,
+#s725:checked ~ .nokia-body .d725,
+#s726:checked ~ .nokia-body .d726,
+#s727:checked ~ .nokia-body .d727,
+#s728:checked ~ .nokia-body .d728,
+#s729:checked ~ .nokia-body .d729,
+#s730:checked ~ .nokia-body .d730,
+#s731:checked ~ .nokia-body .d731,
+#s732:checked ~ .nokia-body .d732,
+#s733:checked ~ .nokia-body .d733,
+#s734:checked ~ .nokia-body .d734,
+#s735:checked ~ .nokia-body .d735,
+#s736:checked ~ .nokia-body .d736,
+#s737:checked ~ .nokia-body .d737,
+#s738:checked ~ .nokia-body .d738,
+#s739:checked ~ .nokia-body .d739,
+#s740:checked ~ .nokia-body .d740,
+#s741:checked ~ .nokia-body .d741,
+#s742:checked ~ .nokia-body .d742,
+#s743:checked ~ .nokia-body .d743,
+#s744:checked ~ .nokia-body .d744,
+#s745:checked ~ .nokia-body .d745,
+#s746:checked ~ .nokia-body .d746,
+#s747:checked ~ .nokia-body .d747,
+#s748:checked ~ .nokia-body .d748,
+#s749:checked ~ .nokia-body .d749,
+#s750:checked ~ .nokia-body .d750,
+#s751:checked ~ .nokia-body .d751,
+#s752:checked ~ .nokia-body .d752,
+#s753:checked ~ .nokia-body .d753,
+#s754:checked ~ .nokia-body .d754,
+#s755:checked ~ .nokia-body .d755,
+#s756:checked ~ .nokia-body .d756,
+#s757:checked ~ .nokia-body .d757,
+#s758:checked ~ .nokia-body .d758,
+#s759:checked ~ .nokia-body .d759,
+#s760:checked ~ .nokia-body .d760,
+#s761:checked ~ .nokia-body .d761,
+#s762:checked ~ .nokia-body .d762,
+#s763:checked ~ .nokia-body .d763,
+#s764:checked ~ .nokia-body .d764,
+#s765:checked ~ .nokia-body .d765,
+#s766:checked ~ .nokia-body .d766,
+#s767:checked ~ .nokia-body .d767,
+#s768:checked ~ .nokia-body .d768,
+#s769:checked ~ .nokia-body .d769,
+#s770:checked ~ .nokia-body .d770,
+#s771:checked ~ .nokia-body .d771,
+#s772:checked ~ .nokia-body .d772,
+#s773:checked ~ .nokia-body .d773,
+#s774:checked ~ .nokia-body .d774,
+#s775:checked ~ .nokia-body .d775,
+#s776:checked ~ .nokia-body .d776,
+#s777:checked ~ .nokia-body .d777,
+#s778:checked ~ .nokia-body .d778,
+#s779:checked ~ .nokia-body .d779,
+#s780:checked ~ .nokia-body .d780,
+#s781:checked ~ .nokia-body .d781,
+#s782:checked ~ .nokia-body .d782,
+#s783:checked ~ .nokia-body .d783,
+#s784:checked ~ .nokia-body .d784,
+#s785:checked ~ .nokia-body .d785,
+#s786:checked ~ .nokia-body .d786,
+#s787:checked ~ .nokia-body .d787,
+#s788:checked ~ .nokia-body .d788,
+#s789:checked ~ .nokia-body .d789,
+#s790:checked ~ .nokia-body .d790,
+#s791:checked ~ .nokia-body .d791,
+#s792:checked ~ .nokia-body .d792,
+#s793:checked ~ .nokia-body .d793,
+#s794:checked ~ .nokia-body .d794,
+#s795:checked ~ .nokia-body .d795,
+#s796:checked ~ .nokia-body .d796,
+#s797:checked ~ .nokia-body .d797,
+#s798:checked ~ .nokia-body .d798,
+#s799:checked ~ .nokia-body .d799,
+#s800:checked ~ .nokia-body .d800,
+#s801:checked ~ .nokia-body .d801,
+#s802:checked ~ .nokia-body .d802,
+#s803:checked ~ .nokia-body .d803,
+#s804:checked ~ .nokia-body .d804,
+#s805:checked ~ .nokia-body .d805,
+#s806:checked ~ .nokia-body .d806,
+#s807:checked ~ .nokia-body .d807,
+#s808:checked ~ .nokia-body .d808,
+#s809:checked ~ .nokia-body .d809,
+#s810:checked ~ .nokia-body .d810,
+#s811:checked ~ .nokia-body .d811,
+#s812:checked ~ .nokia-body .d812,
+#s813:checked ~ .nokia-body .d813,
+#s814:checked ~ .nokia-body .d814,
+#s815:checked ~ .nokia-body .d815,
+#s816:checked ~ .nokia-body .d816,
+#s817:checked ~ .nokia-body .d817,
+#s818:checked ~ .nokia-body .d818,
+#s819:checked ~ .nokia-body .d819,
+#s820:checked ~ .nokia-body .d820,
+#s821:checked ~ .nokia-body .d821,
+#s822:checked ~ .nokia-body .d822,
+#s823:checked ~ .nokia-body .d823,
+#s824:checked ~ .nokia-body .d824,
+#s825:checked ~ .nokia-body .d825,
+#s826:checked ~ .nokia-body .d826,
+#s827:checked ~ .nokia-body .d827,
+#s828:checked ~ .nokia-body .d828,
+#s829:checked ~ .nokia-body .d829,
+#s830:checked ~ .nokia-body .d830,
+#s831:checked ~ .nokia-body .d831,
+#s832:checked ~ .nokia-body .d832,
+#s833:checked ~ .nokia-body .d833,
+#s834:checked ~ .nokia-body .d834,
+#s835:checked ~ .nokia-body .d835,
+#s836:checked ~ .nokia-body .d836,
+#s837:checked ~ .nokia-body .d837,
+#s838:checked ~ .nokia-body .d838,
+#s839:checked ~ .nokia-body .d839,
+#s840:checked ~ .nokia-body .d840,
+#s841:checked ~ .nokia-body .d841,
+#s842:checked ~ .nokia-body .d842,
+#s843:checked ~ .nokia-body .d843,
+#s844:checked ~ .nokia-body .d844,
+#s845:checked ~ .nokia-body .d845,
+#s846:checked ~ .nokia-body .d846,
+#s847:checked ~ .nokia-body .d847,
+#s848:checked ~ .nokia-body .d848,
+#s849:checked ~ .nokia-body .d849,
+#s850:checked ~ .nokia-body .d850,
+#s851:checked ~ .nokia-body .d851,
+#s852:checked ~ .nokia-body .d852,
+#s853:checked ~ .nokia-body .d853,
+#s854:checked ~ .nokia-body .d854,
+#s855:checked ~ .nokia-body .d855,
+#s856:checked ~ .nokia-body .d856,
+#s857:checked ~ .nokia-body .d857,
+#s858:checked ~ .nokia-body .d858,
+#s859:checked ~ .nokia-body .d859,
+#s860:checked ~ .nokia-body .d860,
+#s861:checked ~ .nokia-body .d861,
+#s862:checked ~ .nokia-body .d862,
+#s863:checked ~ .nokia-body .d863,
+#s864:checked ~ .nokia-body .d864,
+#s865:checked ~ .nokia-body .d865,
+#s866:checked ~ .nokia-body .d866,
+#s867:checked ~ .nokia-body .d867,
+#s868:checked ~ .nokia-body .d868,
+#s869:checked ~ .nokia-body .d869,
+#s870:checked ~ .nokia-body .d870,
+#s871:checked ~ .nokia-body .d871,
+#s872:checked ~ .nokia-body .d872,
+#s873:checked ~ .nokia-body .d873,
+#s874:checked ~ .nokia-body .d874,
+#s875:checked ~ .nokia-body .d875,
+#s876:checked ~ .nokia-body .d876,
+#s877:checked ~ .nokia-body .d877,
+#s878:checked ~ .nokia-body .d878,
+#s879:checked ~ .nokia-body .d879,
+#s880:checked ~ .nokia-body .d880,
+#s881:checked ~ .nokia-body .d881,
+#s882:checked ~ .nokia-body .d882,
+#s883:checked ~ .nokia-body .d883,
+#s884:checked ~ .nokia-body .d884,
+#s885:checked ~ .nokia-body .d885,
+#s886:checked ~ .nokia-body .d886,
+#s887:checked ~ .nokia-body .d887,
+#s888:checked ~ .nokia-body .d888,
+#s889:checked ~ .nokia-body .d889,
+#s890:checked ~ .nokia-body .d890,
+#s891:checked ~ .nokia-body .d891,
+#s892:checked ~ .nokia-body .d892,
+#s893:checked ~ .nokia-body .d893,
+#s894:checked ~ .nokia-body .d894,
+#s895:checked ~ .nokia-body .d895,
+#s896:checked ~ .nokia-body .d896,
+#s897:checked ~ .nokia-body .d897,
+#s898:checked ~ .nokia-body .d898,
+#s899:checked ~ .nokia-body .d899,
+#s900:checked ~ .nokia-body .d900,
+#s901:checked ~ .nokia-body .d901,
+#s902:checked ~ .nokia-body .d902,
+#s903:checked ~ .nokia-body .d903,
+#s904:checked ~ .nokia-body .d904,
+#s905:checked ~ .nokia-body .d905,
+#s906:checked ~ .nokia-body .d906,
+#s907:checked ~ .nokia-body .d907,
+#s908:checked ~ .nokia-body .d908,
+#s909:checked ~ .nokia-body .d909,
+#s910:checked ~ .nokia-body .d910,
+#s911:checked ~ .nokia-body .d911,
+#s912:checked ~ .nokia-body .d912,
+#s913:checked ~ .nokia-body .d913,
+#s914:checked ~ .nokia-body .d914,
+#s915:checked ~ .nokia-body .d915,
+#s916:checked ~ .nokia-body .d916,
+#s917:checked ~ .nokia-body .d917,
+#s918:checked ~ .nokia-body .d918,
+#s919:checked ~ .nokia-body .d919,
+#s920:checked ~ .nokia-body .d920,
+#s921:checked ~ .nokia-body .d921,
+#s922:checked ~ .nokia-body .d922,
+#s923:checked ~ .nokia-body .d923,
+#s924:checked ~ .nokia-body .d924,
+#s925:checked ~ .nokia-body .d925,
+#s926:checked ~ .nokia-body .d926,
+#s927:checked ~ .nokia-body .d927,
+#s928:checked ~ .nokia-body .d928,
+#s929:checked ~ .nokia-body .d929,
+#s930:checked ~ .nokia-body .d930,
+#s931:checked ~ .nokia-body .d931,
+#s932:checked ~ .nokia-body .d932,
+#s933:checked ~ .nokia-body .d933,
+#s934:checked ~ .nokia-body .d934,
+#s935:checked ~ .nokia-body .d935,
+#s936:checked ~ .nokia-body .d936,
+#s937:checked ~ .nokia-body .d937,
+#s938:checked ~ .nokia-body .d938,
+#s939:checked ~ .nokia-body .d939,
+#s940:checked ~ .nokia-body .d940,
+#s941:checked ~ .nokia-body .d941,
+#s942:checked ~ .nokia-body .d942,
+#s943:checked ~ .nokia-body .d943,
+#s944:checked ~ .nokia-body .d944,
+#s945:checked ~ .nokia-body .d945,
+#s946:checked ~ .nokia-body .d946,
+#s947:checked ~ .nokia-body .d947,
+#s948:checked ~ .nokia-body .d948,
+#s949:checked ~ .nokia-body .d949,
+#s950:checked ~ .nokia-body .d950,
+#s951:checked ~ .nokia-body .d951,
+#s952:checked ~ .nokia-body .d952,
+#s953:checked ~ .nokia-body .d953,
+#s954:checked ~ .nokia-body .d954,
+#s955:checked ~ .nokia-body .d955,
+#s956:checked ~ .nokia-body .d956,
+#s957:checked ~ .nokia-body .d957,
+#s958:checked ~ .nokia-body .d958,
+#s959:checked ~ .nokia-body .d959,
+#s960:checked ~ .nokia-body .d960,
+#s961:checked ~ .nokia-body .d961,
+#s962:checked ~ .nokia-body .d962,
+#s963:checked ~ .nokia-body .d963,
+#s964:checked ~ .nokia-body .d964,
+#s965:checked ~ .nokia-body .d965,
+#s966:checked ~ .nokia-body .d966,
+#s967:checked ~ .nokia-body .d967,
+#s968:checked ~ .nokia-body .d968,
+#s969:checked ~ .nokia-body .d969,
+#s970:checked ~ .nokia-body .d970,
+#s971:checked ~ .nokia-body .d971,
+#s972:checked ~ .nokia-body .d972,
+#s973:checked ~ .nokia-body .d973,
+#s974:checked ~ .nokia-body .d974,
+#s975:checked ~ .nokia-body .d975,
+#s976:checked ~ .nokia-body .d976,
+#s977:checked ~ .nokia-body .d977,
+#s978:checked ~ .nokia-body .d978,
+#s979:checked ~ .nokia-body .d979,
+#s980:checked ~ .nokia-body .d980,
+#s981:checked ~ .nokia-body .d981,
+#s982:checked ~ .nokia-body .d982,
+#s983:checked ~ .nokia-body .d983,
+#s984:checked ~ .nokia-body .d984,
+#s985:checked ~ .nokia-body .d985,
+#s986:checked ~ .nokia-body .d986,
+#s987:checked ~ .nokia-body .d987,
+#s988:checked ~ .nokia-body .d988,
+#s989:checked ~ .nokia-body .d989,
+#s990:checked ~ .nokia-body .d990,
+#s991:checked ~ .nokia-body .d991,
+#s992:checked ~ .nokia-body .d992,
+#s993:checked ~ .nokia-body .d993,
+#s994:checked ~ .nokia-body .d994,
+#s995:checked ~ .nokia-body .d995,
+#s996:checked ~ .nokia-body .d996,
+#s997:checked ~ .nokia-body .d997,
+#s998:checked ~ .nokia-body .d998,
+#s999:checked ~ .nokia-body .d999,
+#s1000:checked ~ .nokia-body .d1000,
+#s1001:checked ~ .nokia-body .d1001,
+#s1002:checked ~ .nokia-body .d1002,
+#s1003:checked ~ .nokia-body .d1003,
+#s1004:checked ~ .nokia-body .d1004,
+#s1005:checked ~ .nokia-body .d1005,
+#s1006:checked ~ .nokia-body .d1006,
+#s1007:checked ~ .nokia-body .d1007,
+#s1008:checked ~ .nokia-body .d1008,
+#s1009:checked ~ .nokia-body .d1009,
+#s1010:checked ~ .nokia-body .d1010,
+#s1011:checked ~ .nokia-body .d1011,
+#s1012:checked ~ .nokia-body .d1012,
+#s1013:checked ~ .nokia-body .d1013,
+#s1014:checked ~ .nokia-body .d1014,
+#s1015:checked ~ .nokia-body .d1015,
+#s1016:checked ~ .nokia-body .d1016,
+#s1017:checked ~ .nokia-body .d1017,
+#s1018:checked ~ .nokia-body .d1018,
+#s1019:checked ~ .nokia-body .d1019,
+#s1020:checked ~ .nokia-body .d1020,
+#s1021:checked ~ .nokia-body .d1021,
+#s1022:checked ~ .nokia-body .d1022,
+#s1023:checked ~ .nokia-body .d1023,
+#s1024:checked ~ .nokia-body .d1024,
+#s1025:checked ~ .nokia-body .d1025,
+#s1026:checked ~ .nokia-body .d1026,
+#s1027:checked ~ .nokia-body .d1027,
+#s1028:checked ~ .nokia-body .d1028,
+#s1029:checked ~ .nokia-body .d1029,
+#s1030:checked ~ .nokia-body .d1030,
+#s1031:checked ~ .nokia-body .d1031,
+#s1032:checked ~ .nokia-body .d1032,
+#s1033:checked ~ .nokia-body .d1033,
+#s1034:checked ~ .nokia-body .d1034,
+#s1035:checked ~ .nokia-body .d1035,
+#s1036:checked ~ .nokia-body .d1036,
+#s1037:checked ~ .nokia-body .d1037,
+#s1038:checked ~ .nokia-body .d1038,
+#s1039:checked ~ .nokia-body .d1039,
+#s1040:checked ~ .nokia-body .d1040,
+#s1041:checked ~ .nokia-body .d1041,
+#s1042:checked ~ .nokia-body .d1042,
+#s1043:checked ~ .nokia-body .d1043,
+#s1044:checked ~ .nokia-body .d1044,
+#s1045:checked ~ .nokia-body .d1045,
+#s1046:checked ~ .nokia-body .d1046,
+#s1047:checked ~ .nokia-body .d1047,
+#s1048:checked ~ .nokia-body .d1048,
+#s1049:checked ~ .nokia-body .d1049,
+#s1050:checked ~ .nokia-body .d1050,
+#s1051:checked ~ .nokia-body .d1051,
+#s1052:checked ~ .nokia-body .d1052,
+#s1053:checked ~ .nokia-body .d1053,
+#s1054:checked ~ .nokia-body .d1054,
+#s1055:checked ~ .nokia-body .d1055,
+#s1056:checked ~ .nokia-body .d1056,
+#s1057:checked ~ .nokia-body .d1057,
+#s1058:checked ~ .nokia-body .d1058,
+#s1059:checked ~ .nokia-body .d1059,
+#s1060:checked ~ .nokia-body .d1060,
+#s1061:checked ~ .nokia-body .d1061,
+#s1062:checked ~ .nokia-body .d1062,
+#s1063:checked ~ .nokia-body .d1063,
+#s1064:checked ~ .nokia-body .d1064,
+#s1065:checked ~ .nokia-body .d1065,
+#s1066:checked ~ .nokia-body .d1066,
+#s1067:checked ~ .nokia-body .d1067,
+#s1068:checked ~ .nokia-body .d1068,
+#s1069:checked ~ .nokia-body .d1069,
+#s1070:checked ~ .nokia-body .d1070,
+#s1071:checked ~ .nokia-body .d1071,
+#s1072:checked ~ .nokia-body .d1072,
+#s1073:checked ~ .nokia-body .d1073,
+#s1074:checked ~ .nokia-body .d1074,
+#s1075:checked ~ .nokia-body .d1075,
+#s1076:checked ~ .nokia-body .d1076,
+#s1077:checked ~ .nokia-body .d1077,
+#s1078:checked ~ .nokia-body .d1078,
+#s1079:checked ~ .nokia-body .d1079,
+#s1080:checked ~ .nokia-body .d1080,
+#s1081:checked ~ .nokia-body .d1081,
+#s1082:checked ~ .nokia-body .d1082,
+#s1083:checked ~ .nokia-body .d1083,
+#s1084:checked ~ .nokia-body .d1084,
+#s1085:checked ~ .nokia-body .d1085,
+#s1086:checked ~ .nokia-body .d1086,
+#s1087:checked ~ .nokia-body .d1087,
+#s1088:checked ~ .nokia-body .d1088,
+#s1089:checked ~ .nokia-body .d1089,
+#s1090:checked ~ .nokia-body .d1090,
+#s1091:checked ~ .nokia-body .d1091,
+#s1092:checked ~ .nokia-body .d1092,
+#s1093:checked ~ .nokia-body .d1093,
+#s1094:checked ~ .nokia-body .d1094,
+#s1095:checked ~ .nokia-body .d1095,
+#s1096:checked ~ .nokia-body .d1096,
+#s1097:checked ~ .nokia-body .d1097,
+#s1098:checked ~ .nokia-body .d1098,
+#s1099:checked ~ .nokia-body .d1099,
+#s1100:checked ~ .nokia-body .d1100,
+#s1101:checked ~ .nokia-body .d1101,
+#s1102:checked ~ .nokia-body .d1102,
+#s1103:checked ~ .nokia-body .d1103,
+#s1104:checked ~ .nokia-body .d1104,
+#s1105:checked ~ .nokia-body .d1105,
+#s1106:checked ~ .nokia-body .d1106,
+#s1107:checked ~ .nokia-body .d1107,
+#s1108:checked ~ .nokia-body .d1108,
+#s1109:checked ~ .nokia-body .d1109,
+#s1110:checked ~ .nokia-body .d1110,
+#s1111:checked ~ .nokia-body .d1111,
+#s1112:checked ~ .nokia-body .d1112,
+#s1113:checked ~ .nokia-body .d1113,
+#s1114:checked ~ .nokia-body .d1114,
+#s1115:checked ~ .nokia-body .d1115,
+#s1116:checked ~ .nokia-body .d1116,
+#s1117:checked ~ .nokia-body .d1117,
+#s1118:checked ~ .nokia-body .d1118,
+#s1119:checked ~ .nokia-body .d1119,
+#s1120:checked ~ .nokia-body .d1120,
+#s1121:checked ~ .nokia-body .d1121,
+#s1122:checked ~ .nokia-body .d1122,
+#s1123:checked ~ .nokia-body .d1123,
+#s1124:checked ~ .nokia-body .d1124,
+#s1125:checked ~ .nokia-body .d1125,
+#s1126:checked ~ .nokia-body .d1126,
+#s1127:checked ~ .nokia-body .d1127,
+#s1128:checked ~ .nokia-body .d1128,
+#s1129:checked ~ .nokia-body .d1129,
+#s1130:checked ~ .nokia-body .d1130,
+#s1131:checked ~ .nokia-body .d1131,
+#s1132:checked ~ .nokia-body .d1132,
+#s1133:checked ~ .nokia-body .d1133,
+#s1134:checked ~ .nokia-body .d1134,
+#s1135:checked ~ .nokia-body .d1135,
+#s1136:checked ~ .nokia-body .d1136,
+#s1137:checked ~ .nokia-body .d1137,
+#s1138:checked ~ .nokia-body .d1138,
+#s1139:checked ~ .nokia-body .d1139,
+#s1140:checked ~ .nokia-body .d1140,
+#s1141:checked ~ .nokia-body .d1141,
+#s1142:checked ~ .nokia-body .d1142,
+#s1143:checked ~ .nokia-body .d1143,
+#s1144:checked ~ .nokia-body .d1144,
+#s1145:checked ~ .nokia-body .d1145,
+#s1146:checked ~ .nokia-body .d1146,
+#s1147:checked ~ .nokia-body .d1147,
+#s1148:checked ~ .nokia-body .d1148,
+#s1149:checked ~ .nokia-body .d1149,
+#s1150:checked ~ .nokia-body .d1150,
+#s1151:checked ~ .nokia-body .d1151,
+#s1152:checked ~ .nokia-body .d1152,
+#s1153:checked ~ .nokia-body .d1153,
+#s1154:checked ~ .nokia-body .d1154,
+#s1155:checked ~ .nokia-body .d1155,
+#s1156:checked ~ .nokia-body .d1156,
+#s1157:checked ~ .nokia-body .d1157,
+#s1158:checked ~ .nokia-body .d1158,
+#s1159:checked ~ .nokia-body .d1159,
+#s1160:checked ~ .nokia-body .d1160,
+#s1161:checked ~ .nokia-body .d1161,
+#s1162:checked ~ .nokia-body .d1162,
+#s1163:checked ~ .nokia-body .d1163,
+#s1164:checked ~ .nokia-body .d1164,
+#s1165:checked ~ .nokia-body .d1165,
+#s1166:checked ~ .nokia-body .d1166,
+#s1167:checked ~ .nokia-body .d1167,
+#s1168:checked ~ .nokia-body .d1168,
+#s1169:checked ~ .nokia-body .d1169,
+#s1170:checked ~ .nokia-body .d1170,
+#s1171:checked ~ .nokia-body .d1171,
+#s1172:checked ~ .nokia-body .d1172,
+#s1173:checked ~ .nokia-body .d1173,
+#s1174:checked ~ .nokia-body .d1174,
+#s1175:checked ~ .nokia-body .d1175,
+#s1176:checked ~ .nokia-body .d1176,
+#s1177:checked ~ .nokia-body .d1177,
+#s1178:checked ~ .nokia-body .d1178,
+#s1179:checked ~ .nokia-body .d1179,
+#s1180:checked ~ .nokia-body .d1180,
+#s1181:checked ~ .nokia-body .d1181,
+#s1182:checked ~ .nokia-body .d1182,
+#s1183:checked ~ .nokia-body .d1183,
+#s1184:checked ~ .nokia-body .d1184,
+#s1185:checked ~ .nokia-body .d1185,
+#s1186:checked ~ .nokia-body .d1186,
+#s1187:checked ~ .nokia-body .d1187,
+#s1188:checked ~ .nokia-body .d1188,
+#s1189:checked ~ .nokia-body .d1189,
+#s1190:checked ~ .nokia-body .d1190,
+#s1191:checked ~ .nokia-body .d1191,
+#s1192:checked ~ .nokia-body .d1192,
+#s1193:checked ~ .nokia-body .d1193,
+#s1194:checked ~ .nokia-body .d1194,
+#s1195:checked ~ .nokia-body .d1195,
+#s1196:checked ~ .nokia-body .d1196,
+#s1197:checked ~ .nokia-body .d1197,
+#s1198:checked ~ .nokia-body .d1198,
+#s1199:checked ~ .nokia-body .d1199,
+#s1200:checked ~ .nokia-body .d1200,
+#s1201:checked ~ .nokia-body .d1201,
+#s1202:checked ~ .nokia-body .d1202,
+#s1203:checked ~ .nokia-body .d1203,
+#s1204:checked ~ .nokia-body .d1204,
+#s1205:checked ~ .nokia-body .d1205,
+#s1206:checked ~ .nokia-body .d1206,
+#s1207:checked ~ .nokia-body .d1207,
+#s1208:checked ~ .nokia-body .d1208,
+#s1209:checked ~ .nokia-body .d1209,
+#s1210:checked ~ .nokia-body .d1210,
+#s1211:checked ~ .nokia-body .d1211,
+#s1212:checked ~ .nokia-body .d1212,
+#s1213:checked ~ .nokia-body .d1213,
+#s1214:checked ~ .nokia-body .d1214,
+#s1215:checked ~ .nokia-body .d1215,
+#s1216:checked ~ .nokia-body .d1216,
+#s1217:checked ~ .nokia-body .d1217,
+#s1218:checked ~ .nokia-body .d1218,
+#s1219:checked ~ .nokia-body .d1219,
+#s1220:checked ~ .nokia-body .d1220,
+#s1221:checked ~ .nokia-body .d1221,
+#s1222:checked ~ .nokia-body .d1222,
+#s1223:checked ~ .nokia-body .d1223,
+#s1224:checked ~ .nokia-body .d1224,
+#s1225:checked ~ .nokia-body .d1225,
+#s1226:checked ~ .nokia-body .d1226,
+#s1227:checked ~ .nokia-body .d1227,
+#s1228:checked ~ .nokia-body .d1228,
+#s1229:checked ~ .nokia-body .d1229,
+#s1230:checked ~ .nokia-body .d1230,
+#s1231:checked ~ .nokia-body .d1231,
+#s1232:checked ~ .nokia-body .d1232,
+#s1233:checked ~ .nokia-body .d1233,
+#s1234:checked ~ .nokia-body .d1234,
+#s1235:checked ~ .nokia-body .d1235,
+#s1236:checked ~ .nokia-body .d1236,
+#s1237:checked ~ .nokia-body .d1237,
+#s1238:checked ~ .nokia-body .d1238,
+#s1239:checked ~ .nokia-body .d1239,
+#s1240:checked ~ .nokia-body .d1240,
+#s1241:checked ~ .nokia-body .d1241,
+#s1242:checked ~ .nokia-body .d1242,
+#s1243:checked ~ .nokia-body .d1243,
+#s1244:checked ~ .nokia-body .d1244,
+#s1245:checked ~ .nokia-body .d1245,
+#s1246:checked ~ .nokia-body .d1246,
+#s1247:checked ~ .nokia-body .d1247,
+#s1248:checked ~ .nokia-body .d1248,
+#s1249:checked ~ .nokia-body .d1249,
+#s1250:checked ~ .nokia-body .d1250,
+#s1251:checked ~ .nokia-body .d1251,
+#s1252:checked ~ .nokia-body .d1252,
+#s1253:checked ~ .nokia-body .d1253,
+#s1254:checked ~ .nokia-body .d1254,
+#s1255:checked ~ .nokia-body .d1255,
+#s1256:checked ~ .nokia-body .d1256,
+#s1257:checked ~ .nokia-body .d1257,
+#s1258:checked ~ .nokia-body .d1258,
+#s1259:checked ~ .nokia-body .d1259,
+#s1260:checked ~ .nokia-body .d1260,
+#s1261:checked ~ .nokia-body .d1261,
+#s1262:checked ~ .nokia-body .d1262,
+#s1263:checked ~ .nokia-body .d1263,
+#s1264:checked ~ .nokia-body .d1264,
+#s1265:checked ~ .nokia-body .d1265,
+#s1266:checked ~ .nokia-body .d1266,
+#s1267:checked ~ .nokia-body .d1267,
+#s1268:checked ~ .nokia-body .d1268,
+#s1269:checked ~ .nokia-body .d1269,
+#s1270:checked ~ .nokia-body .d1270,
+#s1271:checked ~ .nokia-body .d1271,
+#s1272:checked ~ .nokia-body .d1272,
+#s1273:checked ~ .nokia-body .d1273,
+#s1274:checked ~ .nokia-body .d1274,
+#s1275:checked ~ .nokia-body .d1275,
+#s1276:checked ~ .nokia-body .d1276,
+#s1277:checked ~ .nokia-body .d1277,
+#s1278:checked ~ .nokia-body .d1278,
+#s1279:checked ~ .nokia-body .d1279,
+#s1280:checked ~ .nokia-body .d1280,
+#s1281:checked ~ .nokia-body .d1281,
+#s1282:checked ~ .nokia-body .d1282,
+#s1283:checked ~ .nokia-body .d1283,
+#s1284:checked ~ .nokia-body .d1284,
+#s1285:checked ~ .nokia-body .d1285,
+#s1286:checked ~ .nokia-body .d1286,
+#s1287:checked ~ .nokia-body .d1287,
+#s1288:checked ~ .nokia-body .d1288,
+#s1289:checked ~ .nokia-body .d1289,
+#s1290:checked ~ .nokia-body .d1290,
+#s1291:checked ~ .nokia-body .d1291,
+#s1292:checked ~ .nokia-body .d1292,
+#s1293:checked ~ .nokia-body .d1293,
+#s1294:checked ~ .nokia-body .d1294,
+#s1295:checked ~ .nokia-body .d1295,
+#s1296:checked ~ .nokia-body .d1296,
+#s1297:checked ~ .nokia-body .d1297,
+#s1298:checked ~ .nokia-body .d1298,
+#s1299:checked ~ .nokia-body .d1299,
+#s1300:checked ~ .nokia-body .d1300,
+#s1301:checked ~ .nokia-body .d1301,
+#s1302:checked ~ .nokia-body .d1302,
+#s1303:checked ~ .nokia-body .d1303,
+#s1304:checked ~ .nokia-body .d1304,
+#s1305:checked ~ .nokia-body .d1305,
+#s1306:checked ~ .nokia-body .d1306,
+#s1307:checked ~ .nokia-body .d1307,
+#s1308:checked ~ .nokia-body .d1308,
+#s1309:checked ~ .nokia-body .d1309,
+#s1310:checked ~ .nokia-body .d1310,
+#s1311:checked ~ .nokia-body .d1311,
+#s1312:checked ~ .nokia-body .d1312,
+#s1313:checked ~ .nokia-body .d1313,
+#s1314:checked ~ .nokia-body .d1314,
+#s1315:checked ~ .nokia-body .d1315,
+#s1316:checked ~ .nokia-body .d1316,
+#s1317:checked ~ .nokia-body .d1317,
+#s1318:checked ~ .nokia-body .d1318,
+#s1319:checked ~ .nokia-body .d1319,
+#s1320:checked ~ .nokia-body .d1320,
+#s1321:checked ~ .nokia-body .d1321,
+#s1322:checked ~ .nokia-body .d1322,
+#s1323:checked ~ .nokia-body .d1323,
+#s1324:checked ~ .nokia-body .d1324,
+#s1325:checked ~ .nokia-body .d1325,
+#s1326:checked ~ .nokia-body .d1326,
+#s1327:checked ~ .nokia-body .d1327,
+#s1328:checked ~ .nokia-body .d1328,
+#s1329:checked ~ .nokia-body .d1329,
+#s1330:checked ~ .nokia-body .d1330,
+#s1331:checked ~ .nokia-body .d1331,
+#s1332:checked ~ .nokia-body .d1332,
+#s1333:checked ~ .nokia-body .d1333,
+#s1334:checked ~ .nokia-body .d1334,
+#s1335:checked ~ .nokia-body .d1335,
+#s1336:checked ~ .nokia-body .d1336,
+#s1337:checked ~ .nokia-body .d1337,
+#s1338:checked ~ .nokia-body .d1338,
+#s1339:checked ~ .nokia-body .d1339,
+#s1340:checked ~ .nokia-body .d1340,
+#s1341:checked ~ .nokia-body .d1341,
+#s1342:checked ~ .nokia-body .d1342,
+#s1343:checked ~ .nokia-body .d1343,
+#s1344:checked ~ .nokia-body .d1344,
+#s1345:checked ~ .nokia-body .d1345,
+#s1346:checked ~ .nokia-body .d1346,
+#s1347:checked ~ .nokia-body .d1347,
+#s1348:checked ~ .nokia-body .d1348,
+#s1349:checked ~ .nokia-body .d1349,
+#s1350:checked ~ .nokia-body .d1350,
+#s1351:checked ~ .nokia-body .d1351,
+#s1352:checked ~ .nokia-body .d1352,
+#s1353:checked ~ .nokia-body .d1353,
+#s1354:checked ~ .nokia-body .d1354,
+#s1355:checked ~ .nokia-body .d1355,
+#s1356:checked ~ .nokia-body .d1356,
+#s1357:checked ~ .nokia-body .d1357,
+#s1358:checked ~ .nokia-body .d1358,
+#s1359:checked ~ .nokia-body .d1359,
+#s1360:checked ~ .nokia-body .d1360,
+#s1361:checked ~ .nokia-body .d1361,
+#s1362:checked ~ .nokia-body .d1362,
+#s1363:checked ~ .nokia-body .d1363,
+#s1364:checked ~ .nokia-body .d1364,
+#s1365:checked ~ .nokia-body .d1365,
+#s1366:checked ~ .nokia-body .d1366,
+#s1367:checked ~ .nokia-body .d1367,
+#s1368:checked ~ .nokia-body .d1368,
+#s1369:checked ~ .nokia-body .d1369,
+#s1370:checked ~ .nokia-body .d1370,
+#s1371:checked ~ .nokia-body .d1371,
+#s1372:checked ~ .nokia-body .d1372,
+#s1373:checked ~ .nokia-body .d1373,
+#s1374:checked ~ .nokia-body .d1374,
+#s1375:checked ~ .nokia-body .d1375,
+#s1376:checked ~ .nokia-body .d1376,
+#s1377:checked ~ .nokia-body .d1377,
+#s1378:checked ~ .nokia-body .d1378,
+#s1379:checked ~ .nokia-body .d1379,
+#s1380:checked ~ .nokia-body .d1380,
+#s1381:checked ~ .nokia-body .d1381,
+#s1382:checked ~ .nokia-body .d1382,
+#s1383:checked ~ .nokia-body .d1383,
+#s1384:checked ~ .nokia-body .d1384,
+#s1385:checked ~ .nokia-body .d1385,
+#s1386:checked ~ .nokia-body .d1386,
+#s1387:checked ~ .nokia-body .d1387,
+#s1388:checked ~ .nokia-body .d1388,
+#s1389:checked ~ .nokia-body .d1389,
+#s1390:checked ~ .nokia-body .d1390,
+#s1391:checked ~ .nokia-body .d1391,
+#s1392:checked ~ .nokia-body .d1392,
+#s1393:checked ~ .nokia-body .d1393,
+#s1394:checked ~ .nokia-body .d1394,
+#s1395:checked ~ .nokia-body .d1395,
+#s1396:checked ~ .nokia-body .d1396,
+#s1397:checked ~ .nokia-body .d1397,
+#s1398:checked ~ .nokia-body .d1398,
+#s1399:checked ~ .nokia-body .d1399,
+#s1400:checked ~ .nokia-body .d1400,
+#s1401:checked ~ .nokia-body .d1401,
+#s1402:checked ~ .nokia-body .d1402 {
+    display: grid;
+}
+
+/* asezarea butoanelor in cruce */
+.dpad-set .bt-u { grid-column: 2; grid-row: 1; }
+.dpad-set .bt-l { grid-column: 1; grid-row: 2; }
+.dpad-set .dpad-centru { grid-column: 2; grid-row: 2; }
+.dpad-set .bt-r { grid-column: 3; grid-row: 2; }
+.dpad-set .bt-d { grid-column: 2; grid-row: 3; }
+
+.dpad-btn {
+    height: 40px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #cfd8e3;
+    color: #101214;
+    font-weight: bold;
+    border: 2px solid #0a0d10;
+    border-radius: 6px;
+    box-shadow: 0 3px 0px #0a0d10;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+.dpad-btn:hover {
+    background-color: #9bbc0f;
+}
+
+.dpad-btn:active {
+    transform: translateY(2px);
+}
+
+.dpad-gol {
+    height: 40px;
+}
+
+.dpad-centru {
+    height: 40px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #1a232e;
+    color: #9bbc0f;
+    border: 2px solid #0a0d10;
+    border-radius: 50%;
+    font-size: 0.75rem;
+}
+
+.reset-row {
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+.btn-reset-nokia {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background-color: #b83232;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: bold;
+    border: 2px solid #0a0d10;
+    border-radius: 10px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* carduri moduri si tranzitie multi-proprietate */
+.sectiune-spatiu {
+    margin-bottom: 2.25rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.card-grid > article {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.4rem;
+    transition-property: transform, border-color, box-shadow, background-color;
+    transition-duration: 0.2s, 0.35s, 0.5s, 0.4s;
+    transition-delay: 0s, 0.06s, 0.12s, 0.18s;
+    transition-timing-function: ease-out;
+}
+
+.card-grid > article:hover {
+    transform: translate(-3px, -5px);
+    border-color: #9bbc0f;
+    box-shadow: 8px 10px 0px #000000;
+    background-color: #1f252b;
+}
+
+.card-grid > article:nth-of-type(2) {
+    border-color: #306230;
+}
+
+.badge-retro::after {
+    content: " [1997]";
+    color: #ffcc00;
+    font-size: 0.8rem;
+}
+
+.meta-mod {
+    color: #9bbc0f;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* ghid vizual si analiza design */
+.ghid-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 1.75rem;
+    align-items: center;
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.5rem;
+    margin-bottom: 2.25rem;
+}
+
+figure {
+    background-color: #101214;
+    border: 2px solid #9bbc0f;
+    padding: 0.7rem;
+}
+
+figure img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid #306230;
+}
+
+figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.84rem;
+    color: #b4bcc4;
+    text-align: center;
+}
+
+.lista-punctaj {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.lista-punctaj li {
+    margin-bottom: 0.45rem;
+}
+
+details {
+    background-color: #101214;
+    border: 2px dashed #ffcc00;
+    padding: 0.75rem 1rem;
+}
+
+summary {
+    color: #ffcc00;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details p {
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.two-col-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.info-box {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.4rem;
+}
+
+/* pagina istorie */
+.istorie-coloane {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.istorie-coloane > section article {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.galerie-istorie {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.istorie-aside {
+    background-color: #181c20;
+    border: 3px solid #9bbc0f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.35rem;
+}
+
+.aside-subsectiune {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px dashed #306230;
+}
+
+.timeline-lista {
+    list-style: none;
+}
+
+.timeline-lista li {
+    padding: 0.55rem 0.4rem;
+    border-bottom: 1px solid #2c333a;
+    font-size: 0.92rem;
+}
+
+.timeline-lista li:nth-of-type(even) {
+    background-color: #131619;
+}
+
+.timeline-lista li::before {
+    content: "▸ ";
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1rem 0 0 0;
+    padding: 0.95rem 1rem;
+    background-color: #101214;
+    border-left: 4px solid #ffcc00;
+    font-style: italic;
+}
+
+blockquote::before {
+    content: "« ";
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+blockquote::after {
+    content: " »";
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* pagina clasament arcade */
+@keyframes blinkCoin {
+    0% {
+        opacity: 1;
+        color: #ffcc00;
+        text-shadow: 0 0 6px #ffcc00;
+    }
+    50% {
+        opacity: 0.35;
+        color: #9bbc0f;
+        text-shadow: none;
+    }
+    100% {
+        opacity: 1;
+        color: #ffcc00;
+        text-shadow: 0 0 6px #ffcc00;
+    }
+}
+
+.insert-coin {
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    margin-bottom: 1rem;
+    animation: blinkCoin 1.4s infinite ease-in-out;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: #181c20;
+    border: 3px solid #9bbc0f;
+    box-shadow: 4px 4px 0px #000000;
+    padding: 1.1rem;
+    text-align: center;
+}
+
+.stat-valoare {
+    font-size: 1.65rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 0.25rem;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 2.25rem;
+}
+
+.arcade-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #181c20;
+    border: 3px solid #9bbc0f;
+    box-shadow: 6px 6px 0px #000000;
+}
+
+.arcade-tabel caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 0.6rem;
+}
+
+.arcade-tabel th,
+.arcade-tabel td {
+    padding: 0.85rem 1rem;
+    border: 1px solid #2e363f;
+    text-align: left;
+}
+
+.arcade-tabel thead th {
+    background-color: #0f380f;
+    color: #9bbc0f;
+    text-transform: uppercase;
+}
+
+.arcade-tabel tfoot td {
+    background-color: #121518;
+    color: #b4bcc4;
+    font-size: 0.86rem;
+}
+
+.arcade-tabel tbody tr:nth-of-type(odd) {
+    background-color: #14181c;
+}
+
+.arcade-tabel tbody tr:nth-of-type(1) td:first-child::before {
+    content: "★ ";
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.arcade-tabel tbody tr:nth-of-type(2) td:first-child::before {
+    content: "◆ ";
+    color: #d0d8e0;
+    font-weight: bold;
+}
+
+.arcade-tabel tbody tr:nth-of-type(3) td:first-child::before {
+    content: "▲ ";
+    color: #cd7f32;
+    font-weight: bold;
+}
+
+/* pagina creatori ai jocului */
+.creator-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+}
+
+.creator-card {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.4rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.poza-creator {
+    width: 104px;
+    height: 104px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 3px solid #9bbc0f;
+    background-color: #0f380f;
+}
+
+.dual-creator-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex-shrink: 0;
+    width: 112px;
+}
+
+.creator-slot {
+    background-color: #101214;
+    border: 2px solid #9bbc0f;
+    padding: 0.35rem;
+    text-align: center;
+}
+
+.creator-slot img {
+    width: 100%;
+    height: 86px;
+    object-fit: cover;
+    border: 1px solid #306230;
+}
+
+.creator-nume-sub {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.74rem;
+    font-weight: bold;
+    color: #ffcc00;
+    line-height: 1.2;
+}
+
+.badge-pionier::after {
+    content: " [PIONIER]";
+    color: #ffcc00;
+    font-size: 0.78rem;
+}
+
+.echipa-jos {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.75rem;
+    align-items: start;
+}
+
+.manual-box {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.4rem;
+}
+
+#formular-retro {
+    background-color: #181c20;
+    border: 3px solid #2e363f;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.4rem;
+}
+
+fieldset {
+    border: 2px solid #306230;
+    padding: 1rem;
+}
+
+legend {
+    padding: 0 0.5rem;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #e4e8ec;
+    font-weight: bold;
+    font-size: 0.92rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.65rem;
+    background-color: #101214;
+    border: 2px solid #9bbc0f;
+    color: #e4e8ec;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+/* footer */
+footer {
+    background-color: #181c20;
+    border-top: 4px solid #306230;
+    padding: 1.25rem;
+    margin-top: 2rem;
+    color: #b4bcc4;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.footer-container p {
+    margin-bottom: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* responsive tableta si telefon */
+@media (max-width: 920px) {
+    .hero-section,
+    .ghid-grid,
+    .istorie-coloane,
+    .echipa-jos,
+    .two-col-info {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .creator-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 1.25rem 0.85rem;
+    }
+
+    h1 {
+        font-size: 1.45rem;
+    }
+
+    .hero-section,
+    .card-grid > article,
+    .ghid-grid,
+    .info-box,
+    .creator-card,
+    .manual-box,
+    #formular-retro {
+        padding: 1.1rem;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 0.75rem;
+        border-top: 2px solid #306230;
+        padding-top: 0.5rem;
+    }
+
+    #menu-toggle:checked ~ nav .nav-list {
+        display: flex;
+    }
+
+    .dropdown {
+        display: block;
+        position: static;
+        box-shadow: none;
+        margin-left: 1rem;
+    }
+
+    .arcade-tabel th,
+    .arcade-tabel td {
+        padding: 0.45rem 0.2rem;
+        font-size: 0.66rem;
+        letter-spacing: 0;
+    }
+
+    .card-grid,
+    .stats-grid,
+    .galerie-istorie {
+        grid-template-columns: 1fr;
+    }
+
+    .creator-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dual-creator-col {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .creator-slot {
+        width: 115px;
+    }
+}
+
+@media (max-width: 390px) {
+    .nokia-body {
+        padding: 0.85rem 0.65rem 1.1rem 0.65rem;
+        border-radius: 22px 22px 34px 34px;
+    }
+
+    .lcd-grid {
+        width: 200px;
+        height: 200px;
+    }
+
+    .dpad-set {
+        grid-template-columns: repeat(3, 44px);
+    }
+}
